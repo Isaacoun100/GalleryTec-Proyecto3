@@ -24,6 +24,27 @@ public:
 
 private:
     QWidget windowApp;
+    QPushButton *anteriorButton;
+    QPushButton *verMetadataButton;
+    QPushButton *siguienteButton;
+    QPushButton *eliminarImagenButton;
+    const QSize BUTTON_SIZE = QSize(50, 50);
+
+    QLabel *nombreGaleria;
+    QLabel *nombreImagen;
+
+    QString nombreCombobox;
+
+    QComboBox *verGalerias;
+
+    void setUpBotones();
+    void setUpLabels();
+    void setUpCombobox();
+    void setUpWidgets();
+
+public slots:
+    void clickedVerMetadata();
+    void clickedEliminarImagen();
 
 };
 
