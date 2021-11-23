@@ -10,6 +10,7 @@
 #include <QPixmap>
 #include <QString>
 #include "MainApp.h"
+#include "SignInWindow.h"
 
 using namespace std;
 
@@ -29,12 +30,15 @@ public:
 private:
     QWidget window;
     MainApp *ma;
+    SignInWindow *siw;
     QLineEdit *username;
     QLineEdit *password;
     QPushButton *registrarse;
     QPushButton *botonEntrar;
 
-    QLabel *label1;
+    QLabel *usernameLabel;
+    QLabel *passwordLabel;
+    QLabel *noTieneCuentaLabel;
 
     void setUpBotones();
 
