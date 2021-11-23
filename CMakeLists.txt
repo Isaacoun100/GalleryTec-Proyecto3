@@ -20,5 +20,5 @@ add_executable(GalleryTec_Proyecto3
         GUI/GalleryTEC_GUI.h
         GUI/GalleryTEC_GUI.cpp
         GUI/MainApp.cpp
-        GUI/MainApp.h)
+        GUI/MainApp.h local/ReadWrite.cpp local/ReadWrite.h)
 target_link_libraries(GalleryTec_Proyecto3 Qt5::Widgets)
