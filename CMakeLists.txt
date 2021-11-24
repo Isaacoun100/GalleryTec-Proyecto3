@@ -13,12 +13,27 @@ set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTORCC ON)
 
-include_directories(GUI)
+find_package(libmongocxx REQUIRED)
+find_package(libbsoncxx REQUIRED)
 
+include_directories(${LIBMONGOCXX_INCLUDE_DIR})
+include_directories(${LIBBSONCXX_INCLUDE_DIR})
+include_directories("/usr/local/include/mongocxx/v_noabi")
+include_directories("/usr/local/include/bsoncxx/v_noabi")
+include_directories("/usr/local/include/libmongoc-1.0")
+include_directories("/usr/local/include/libbson-1.0")
+include_directories("/usr/local/lib")
+
+include_directories(GUI)
 add_executable(GalleryTec_Proyecto3
         main.cpp
         GUI/GalleryTEC_GUI.h
         GUI/GalleryTEC_GUI.cpp
         GUI/MainApp.cpp
-        GUI/MainApp.h)
+        GUI/MainApp.h
+        Database_Management/UsersDatabaseHandler.cpp
+        Database_Management/UsersDatabaseHandler.h)
+
 target_link_libraries(GalleryTec_Proyecto3 Qt5::Widgets)
+target_link_libraries(GalleryTec_Proyecto3 ${LIBMONGOCXX_LIBRARIES})
+target_link_libraries(GalleryTec_Proyecto3 ${LIBBSONCXX_LIBRARIES})

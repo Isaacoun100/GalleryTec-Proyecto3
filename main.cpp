@@ -3,13 +3,16 @@
 //
 #include <iostream>
 #include <QtWidgets>
-#include "GalleryTEC_GUI.h"
+#include "Database_Management/UsersDatabaseHandler.h"
 
 using namespace std;
 
-int main(int argc, char *argv[]) {
+int main() {
+    UsersDatabaseHandler DBhandler;
+    //DBhandler.insertUserToDB("usuarionuevo","passwordUsuarioNuevo");
+    //DBhandler.deleteUserData("user_5");
+    DBhandler.getUserDataFromDB("usuarionuevo");
 
-    QApplication app(argc,argv);
-    GalleryTEC_GUI GUI;
-    return app.exec();
+
+    return 0;
 }
