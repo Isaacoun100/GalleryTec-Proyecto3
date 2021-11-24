@@ -3,6 +3,7 @@
 //
 
 #include "UsersDatabaseHandler.h"
+#include <vector>
 
 using bsoncxx::builder::stream::close_array;
 using bsoncxx::builder::stream::close_document;
@@ -13,10 +14,15 @@ using bsoncxx::builder::stream::open_document;
 
 using namespace std;
 
+vector<string> galleries;
+vector<string> images;
+
 UsersDatabaseHandler::UsersDatabaseHandler() {
     db = conn["users_DB"];
     coll = db["users"];
     cout << "Database Connected!" << endl;
+    galleries.push_back("Gallery1");
+    images.push_back("image_1");
 }
 
 void UsersDatabaseHandler::insertUserToDB(string userName, string userPassword) {
@@ -39,7 +45,29 @@ void UsersDatabaseHandler::insertUserToDB(string userName, string userPassword) 
     cout << "user inserted" << endl;
 }
 
-void UsersDatabaseHandler::modifyUserData() {
+void UsersDatabaseHandler::addNewGallery(string username,string newGallery) {
+
+    galleries.push_back(newGallery);
+
+    auto array_builder = bsoncxx::builder::basic::array{};
+    for (const auto& gallery : galleries){
+        array_builder.append(gallery);
+    }
+
+    coll.update_one(document{} << "usuario" << username << finalize,
+                    document{} << "$set" << open_document <<
+                               "galerias" << array_builder << close_document << finalize);
+
+    cout << "done" << endl;
+
+
+}
+
+void UsersDatabaseHandler::modifyUserData(string userName, string newUserName) {
+    coll.update_one(document{} << "usuario" << userName << finalize,
+                    document{} << "$set" << open_document <<
+                    "usuario" << newUserName << close_document << finalize);
+    cout << "done" << endl;
 
 }
 
@@ -53,4 +81,36 @@ void UsersDatabaseHandler::getUserDataFromDB(string username){
     if(result){
         cout << bsoncxx::to_json(*result) << endl;
     }
+}
+
+void UsersDatabaseHandler::addNewImage(string username,string gallery, string newImage) {
+
+    images.push_back(newImage);
+
+    auto array_builder = bsoncxx::builder::basic::array{};
+    for (const auto& image : images){
+        array_builder.append(image);
+    }
+
+    coll.update_one(document{} << "usuario" << username << "galleries" << gallery << finalize,
+                    document{} << "$set" << open_document <<
+                               gallery << array_builder << close_document << finalize);
+
+    cout << "done adding image" << endl;
+}
+
+void UsersDatabaseHandler::getUsernameAndPassword(string username) {
+
+}
+
+void UsersDatabaseHandler::getGalleries(string username) {
+
+}
+
+void UsersDatabaseHandler::getImages(string username) {
+
+}
+
+void UsersDatabaseHandler::emptyGallerySet() {
+    galleries.clear();
 }

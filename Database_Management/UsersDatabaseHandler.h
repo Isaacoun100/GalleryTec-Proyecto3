@@ -34,9 +34,18 @@ public:
 public:
     UsersDatabaseHandler();
     void insertUserToDB(string userName, string userPassword);
-    void modifyUserData();
+    void modifyUserData(string userName, string newUserName);
     void deleteUserData(string username);
     void getUserDataFromDB(string username);
+
+    void addNewGallery(string username,string newGallery);
+    void addNewImage(string username, string gallery,string newImage);
+    void getUsernameAndPassword(string username);
+    void getGalleries(string username);
+    void getImages(string username);
+
+    void emptyGallerySet();
+
 
 
 };
