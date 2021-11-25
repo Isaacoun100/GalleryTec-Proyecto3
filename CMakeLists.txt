@@ -25,5 +25,5 @@ add_executable(GalleryTec_Proyecto3
         MemoryManagement/FileHandler.h
         GUI/MainApp.h
         local/ReadWrite.cpp
-        local/ReadWrite.h)
+        local/ReadWrite.h huffman/HuffmanCompresion.cpp huffman/HuffmanCompresion.h)
 target_link_libraries(GalleryTec_Proyecto3 Qt5::Widgets)
