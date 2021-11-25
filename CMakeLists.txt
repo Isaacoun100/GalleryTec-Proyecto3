@@ -4,10 +4,23 @@ project(GalleryTec_Proyecto3)
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH}"${${PROJECT_NAME}_SOURCE_DIR}/cmake")
+set(jsoncpp_lib_dir ${CMAKE_BINARY_DIR}/jsoncpp-build/src/lib_json)
+set(jsoncpp_src_dir ${CMAKE_BINARY_DIR}/jsoncpp-src/include)
+
+link_directories(jsoncpp_lib_dir)
+
+
 
 find_package( Qt5Core REQUIRED)
 find_package( Qt5Widgets REQUIRED)
 find_package( Qt5Gui REQUIRED)
+find_package(jsoncpp)
+
+if (jsoncpp_found)
+    message(STATUS "jsoncpp_include_dir:${jsoncpp_include_dir}")
+    message(STATUS "jsoncpp_libraries:${jsoncpp_libraries}")
+    message(STATUS "jsoncpp_version:${jsoncpp_version}")
+endif ()
 
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTOUIC ON)
@@ -23,6 +36,7 @@ include_directories("/usr/local/include/bsoncxx/v_noabi")
 include_directories("/usr/local/include/libmongoc-1.0")
 include_directories("/usr/local/include/libbson-1.0")
 include_directories("/usr/local/lib")
+include_directories(jsoncpp_include_dir)
 
 include_directories(GUI)
 add_executable(GalleryTec_Proyecto3
@@ -37,3 +51,4 @@ add_executable(GalleryTec_Proyecto3
 target_link_libraries(GalleryTec_Proyecto3 Qt5::Widgets)
 target_link_libraries(GalleryTec_Proyecto3 ${LIBMONGOCXX_LIBRARIES})
 target_link_libraries(GalleryTec_Proyecto3 ${LIBBSONCXX_LIBRARIES})
+target_link_libraries(GalleryTec_Proyecto3 jsoncpp)

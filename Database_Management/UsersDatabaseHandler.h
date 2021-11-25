@@ -37,12 +37,14 @@ public:
     void modifyUserData(string userName, string newUserName);
     void deleteUserData(string username);
     void getUserDataFromDB(string username);
-
     void addNewGallery(string username,string newGallery);
     void addNewImage(string username, string gallery,string newImage);
-    void getUsernameAndPassword(string username);
-    void getGalleries(string username);
-    void getImages(string username);
+    vector<string> getUsernameAndPassword(string username);
+    vector<string> getGalleries(string username);
+    vector<string> getImages(string username, string gallery);
+    string getRawImages(string username,string gallery);
+    void deleteGallery(string username, string gallery);
+    void deleteImage(string username, string gallery, string image);
 
     void emptyGallerySet();
 

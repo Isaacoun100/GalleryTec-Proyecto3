@@ -4,6 +4,12 @@
 
 #include "UsersDatabaseHandler.h"
 #include <vector>
+#include <jsoncpp/json/value.h>
+#include <jsoncpp/json/json.h>
+#include <jsoncpp/json/reader.h>
+#include <jsoncpp/json/writer.h>
+#include <bits/stdc++.h>
+
 
 using bsoncxx::builder::stream::close_array;
 using bsoncxx::builder::stream::close_document;
@@ -33,12 +39,6 @@ void UsersDatabaseHandler::insertUserToDB(string userName, string userPassword) 
     bsoncxx::view_or_value<bsoncxx::document::view, bsoncxx::document::value> doc_value = builder
             << "usuario" << userName
             << "contraseña" << userPassword
-            << "galerias" << bsoncxx::builder::stream::open_array
-            << bsoncxx::builder::stream::open_array
-            << "gallery1"
-            << close_array
-            << "image1"
-            << close_array
             << bsoncxx::builder::stream::finalize;
 
     bsoncxx::stdx::optional<mongocxx::result::insert_one> result = coll.insert_one(doc_value);
@@ -47,17 +47,9 @@ void UsersDatabaseHandler::insertUserToDB(string userName, string userPassword) 
 
 void UsersDatabaseHandler::addNewGallery(string username,string newGallery) {
 
-    galleries.push_back(newGallery);
-
-    auto array_builder = bsoncxx::builder::basic::array{};
-    for (const auto& gallery : galleries){
-        array_builder.append(gallery);
-    }
-
     coll.update_one(document{} << "usuario" << username << finalize,
                     document{} << "$set" << open_document <<
-                               "galerias" << array_builder << close_document << finalize);
-
+                               newGallery << "" << close_document << finalize);
     cout << "done" << endl;
 
 
@@ -77,40 +69,121 @@ void UsersDatabaseHandler::deleteUserData(string username) {
 }
 
 void UsersDatabaseHandler::getUserDataFromDB(string username){
+    Json::Reader reader;
+    Json::Value root;
+
     bsoncxx::stdx::optional<bsoncxx::document::value> result = coll.find_one(document{} << "usuario" << username << finalize);
     if(result){
+        string json = bsoncxx::to_json(*result);
+        reader.parse(json.c_str(),root);
+
         cout << bsoncxx::to_json(*result) << endl;
     }
 }
 
 void UsersDatabaseHandler::addNewImage(string username,string gallery, string newImage) {
 
-    images.push_back(newImage);
+    string images;
+    images = getRawImages(username,gallery);
 
-    auto array_builder = bsoncxx::builder::basic::array{};
-    for (const auto& image : images){
-        array_builder.append(image);
-    }
+    images += newImage+",";
+    cout << images << endl;
 
-    coll.update_one(document{} << "usuario" << username << "galleries" << gallery << finalize,
+
+    coll.update_one(document{} << "usuario" << username  << finalize,
                     document{} << "$set" << open_document <<
-                               gallery << array_builder << close_document << finalize);
+                               gallery << images << close_document << finalize);
+
+
 
     cout << "done adding image" << endl;
 }
 
-void UsersDatabaseHandler::getUsernameAndPassword(string username) {
+vector<string> UsersDatabaseHandler::getUsernameAndPassword(string username) {
+    Json::Reader reader;
+    Json::Value root;
+    vector<string> logInInfo;
 
+    string json_result;
+
+    bsoncxx::stdx::optional<bsoncxx::document::value> result = coll.find_one(document{} << "usuario" << username << finalize);
+    if(result){
+        json_result = bsoncxx::to_json(*result);
+        reader.parse(json_result.c_str(),root);
+        logInInfo.push_back(root["usuario"].asString());
+        logInInfo.push_back(root["contraseña"].asString());
+
+    }
+    return logInInfo;
 }
 
-void UsersDatabaseHandler::getGalleries(string username) {
+vector<string> UsersDatabaseHandler::getGalleries(string username) {
+    Json::Reader reader;
+    Json::Value root;
+    vector<string> galleryList;
 
+    string json_result;
+
+    bsoncxx::stdx::optional<bsoncxx::document::value> result = coll.find_one(document{} << "usuario" << username << finalize);
+    if(result){
+        json_result = bsoncxx::to_json(*result);
+        reader.parse(json_result.c_str(),root);
+
+        for(string& memberName:root.getMemberNames()){
+            if(memberName != "_id" and memberName != "usuario" and memberName != "contraseña"){
+                galleryList.push_back(memberName);
+            }
+        }
+
+    }
+    return galleryList;
 }
 
-void UsersDatabaseHandler::getImages(string username) {
+vector<string> UsersDatabaseHandler::getImages(string username, string gallery) {
+    vector<string> imagesList;
+    string images;
+    images = getRawImages(username,gallery);
 
+    stringstream ss(images);
+    string segment;
+
+    while(std::getline(ss,segment,',')){
+        imagesList.push_back(segment);
+    }
+
+
+    return imagesList;
 }
 
 void UsersDatabaseHandler::emptyGallerySet() {
     galleries.clear();
+}
+
+string UsersDatabaseHandler::getRawImages(string username,string gallery) {
+    Json::Reader reader;
+    Json::Value root;
+    string images;
+
+    bsoncxx::stdx::optional<bsoncxx::document::value> result = coll.find_one(document{} << "usuario" << username << finalize);
+    if(result){
+        string json = bsoncxx::to_json(*result);
+        reader.parse(json.c_str(),root);
+
+        //cout << bsoncxx::to_json(*result) << endl;
+        cout << root[gallery] << endl;
+        images = root[gallery].asString();
+
+        cout << images << endl;
+        return images;
+    }
+
+
+}
+
+void UsersDatabaseHandler::deleteGallery(string username, string gallery) {
+
+}
+
+void UsersDatabaseHandler::deleteImage(string username, string gallery, string image) {
+
 }
