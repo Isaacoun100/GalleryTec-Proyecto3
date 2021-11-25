@@ -1,7 +1,3 @@
-//
-// Created by marcelo on 23/11/21.
-//
-
 #ifndef GALLERYTEC_PROYECTO3_FILEHANDLER_H
 #define GALLERYTEC_PROYECTO3_FILEHANDLER_H
 

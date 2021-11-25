@@ -26,7 +26,9 @@ void FileHandler::imageallocator(string image, string ID) {
     partitions.push_back("0110");
 
     int partitionindex=0;
-    //10" 00" 101
+
+    //Compress image string
+
     //aquí se hace la partición
 
     int paridad=this->getbloqueparidad();//En que disco ira el bloque de paridad
@@ -67,7 +69,9 @@ string FileHandler::getimage(string ID) {
     compressedimage=this->fileReader(ID,parityblock);
     //Decompressing
 
-    return compressedimage;
+    // decompresedimage = decompressimage(compredsedimage);
+
+    return compressedimage; //Change to decompressed
 }
 
 string FileHandler::fileReader(string ID, int Parity) {
