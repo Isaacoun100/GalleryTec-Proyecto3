@@ -18,8 +18,14 @@ using namespace std;
 class SignInWindow:public QWindow {
     Q_OBJECT
 public:
+    /**
+     * @brief constructor de la clase SignInWindow.
+     */
     SignInWindow();
 
+    /**
+     * @brief destructor de la clase SignInWindow.
+     */
     virtual ~SignInWindow();
 
 private:
@@ -31,13 +37,31 @@ private:
     QLabel *newUsernameLabel;
     QLabel *newPasswordLabel;
 
+    /**
+     * @brief metodo encargado de crear los botones y mostrarlos en pantalla.
+     */
     void setUpBotones();
+
+    /**
+     * @brief metodo encargado de crear y mostrar los labels en pantalla.
+     */
     void setUpLabels();
+
+    /**
+     * @brief metodo encargado de crear y mostrar los entries en pantalla.
+     */
     void setUpEntries();
+
+    /**
+     * @brief metodo encargado de correr todos los demas metodos, este se llama en el constructor de la clase.
+     */
     void setUpWidgets();
 
 public slots:
 
+    /**
+     * @brief este metodo se llama cuando se le da click al boton "Registrar" y abre la ventana creada por la clase GalleryTEC_GUI.
+     */
     void clickedRegistrar();
 
 };
