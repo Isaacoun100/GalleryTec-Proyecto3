@@ -29,6 +29,7 @@ public:
     mongocxx::client conn{uri};
     mongocxx::database db;
     mongocxx::collection coll;
+    mongocxx::collection collImages;
 
 
 public:
@@ -45,6 +46,9 @@ public:
     string getRawImages(string username,string gallery);
     void deleteGallery(string username, string gallery);
     void deleteImage(string username, string gallery, string image);
+    void insertImageToCollection(string newImage, string gallery);
+    void insertImagesModified(string username,string images,string gallery);
+
 
     void emptyGallerySet();
 

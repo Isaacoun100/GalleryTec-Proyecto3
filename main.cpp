@@ -15,7 +15,7 @@ int main() {
     //DBhandler.getUserDataFromDB("NEW_USER__");
     //DBhandler.modifyUserData("usuarionuevo", "NEW_USER__");
     //DBhandler.addNewGallery("NEW_USER__", "newG4");
-    //DBhandler.addNewImage("USUARIOTEC","Gallery02", "Image_00001");
+    //DBhandler.addNewImage("USUARIOTEC","Gallery02", "Image_00002__");
     //DBhandler.addNewGallery("USUARIOTEC","Gallery03");
 
 
@@ -25,7 +25,8 @@ int main() {
     //cout << info.at(1) << endl;
 
     //DBhandler.getGalleries("USUARIOTEC");
-    DBhandler.getImages("NEW_USER__","Gallery4");
+    //DBhandler.getImages("NEW_USER__","Gallery4");
+    DBhandler.deleteImage("USUARIOTEC","Gallery02","Image_00002__");
 
 
 

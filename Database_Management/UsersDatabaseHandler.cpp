@@ -26,14 +26,12 @@ vector<string> images;
 UsersDatabaseHandler::UsersDatabaseHandler() {
     db = conn["users_DB"];
     coll = db["users"];
+    collImages = db["images"];
     cout << "Database Connected!" << endl;
-    galleries.push_back("Gallery1");
-    images.push_back("image_1");
+
 }
 
 void UsersDatabaseHandler::insertUserToDB(string userName, string userPassword) {
-
-
     auto builder = bsoncxx::builder::stream::document{};
 
     bsoncxx::view_or_value<bsoncxx::document::view, bsoncxx::document::value> doc_value = builder
@@ -51,7 +49,6 @@ void UsersDatabaseHandler::addNewGallery(string username,string newGallery) {
                     document{} << "$set" << open_document <<
                                newGallery << "" << close_document << finalize);
     cout << "done" << endl;
-
 
 }
 
@@ -93,9 +90,8 @@ void UsersDatabaseHandler::addNewImage(string username,string gallery, string ne
     coll.update_one(document{} << "usuario" << username  << finalize,
                     document{} << "$set" << open_document <<
                                gallery << images << close_document << finalize);
-
-
-
+    
+    insertImageToCollection(newImage,gallery);
     cout << "done adding image" << endl;
 }
 
@@ -134,7 +130,6 @@ vector<string> UsersDatabaseHandler::getGalleries(string username) {
                 galleryList.push_back(memberName);
             }
         }
-
     }
     return galleryList;
 }
@@ -150,8 +145,6 @@ vector<string> UsersDatabaseHandler::getImages(string username, string gallery) 
     while(std::getline(ss,segment,',')){
         imagesList.push_back(segment);
     }
-
-
     return imagesList;
 }
 
@@ -177,13 +170,55 @@ string UsersDatabaseHandler::getRawImages(string username,string gallery) {
         return images;
     }
 
-
 }
 
 void UsersDatabaseHandler::deleteGallery(string username, string gallery) {
+    string imagesToDelete;
+    imagesToDelete = getRawImages(username,gallery);
+    coll.delete_one(document{} << gallery << imagesToDelete << finalize);
+
+    bsoncxx::stdx::optional<mongocxx::result::delete_result> result = collImages.delete_many(
+            document{} << "galeria" << open_document <<
+            "$gte" << gallery << close_document << finalize);
+
+    cout << "Images deleted from collection " << endl;
 
 }
 
 void UsersDatabaseHandler::deleteImage(string username, string gallery, string image) {
+    string images;
+    image = image+",";
+    images = getRawImages(username,gallery);
+    images.replace(images.find(image),image.size(),"");
+    cout << "after replace " << images << endl;
+
+    insertImagesModified(username,images,gallery);
+
+}
+
+void UsersDatabaseHandler::insertImageToCollection(string newImage, string gallery) {
+    auto builder = bsoncxx::builder::stream::document{};
+
+    bsoncxx::view_or_value<bsoncxx::document::view, bsoncxx::document::value> doc_value = builder
+            << "imagen" << newImage
+            << "galeria" << gallery
+            << "autor" << ""
+            << "año creacion" << ""
+            << "tamaño" << ""
+            << "descripcion" << ""
+            << bsoncxx::builder::stream::finalize;
+
+    bsoncxx::stdx::optional<mongocxx::result::insert_one> result = collImages.insert_one(doc_value);
+    cout << "Image inserted in collection" << endl;
+
+}
+
+void UsersDatabaseHandler::insertImagesModified(string username,string images, string gallery) {
+
+    coll.update_one(document{} << "usuario" << username  << finalize,
+                    document{} << "$set" << open_document <<
+                               gallery << images << close_document << finalize);
+
+
 
 }
