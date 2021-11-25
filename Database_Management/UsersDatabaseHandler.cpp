@@ -90,7 +90,7 @@ void UsersDatabaseHandler::addNewImage(string username,string gallery, string ne
     coll.update_one(document{} << "usuario" << username  << finalize,
                     document{} << "$set" << open_document <<
                                gallery << images << close_document << finalize);
-    
+
     insertImageToCollection(newImage,gallery);
     cout << "done adding image" << endl;
 }
@@ -218,6 +218,42 @@ void UsersDatabaseHandler::insertImagesModified(string username,string images, s
     coll.update_one(document{} << "usuario" << username  << finalize,
                     document{} << "$set" << open_document <<
                                gallery << images << close_document << finalize);
+
+
+
+}
+
+vector<string> UsersDatabaseHandler::getMetadata(string image) {
+    vector<string> metadata;
+    Json::Reader reader;
+    Json::Value root;
+
+    bsoncxx::stdx::optional<bsoncxx::document::value> result = collImages.find_one(document{} << "imagen" << image << finalize);
+    if(result){
+        string json = bsoncxx::to_json(*result);
+        reader.parse(json.c_str(),root);
+
+        //cout << bsoncxx::to_json(*result) << endl;
+
+        metadata.push_back(root["imagen"].asString());
+        metadata.push_back(root["autor"].asString());
+        metadata.push_back(root["año creacion"].asString());
+        metadata.push_back(root["tamaño"].asString());
+        metadata.push_back(root["descripcion"].asString());
+    }
+
+    //for(int i = 0; i< metadata.size(); i++){
+        //cout << metadata[i] << endl;
+    //}
+
+    return metadata;
+}
+
+void UsersDatabaseHandler::modifyMetadata(string image, string infoAuthor, string infoYear, string infoSize, string infoDesc) {
+    collImages.update_one(document{} << "imagen" << image << finalize,
+                    document{} << "$set" << open_document <<
+                               "autor" << infoAuthor << "año creacion" << infoYear << "tamaño" << infoSize << "descripcion" << infoDesc <<close_document << finalize);
+    cout << "done updating metadata" << endl;
 
 
 

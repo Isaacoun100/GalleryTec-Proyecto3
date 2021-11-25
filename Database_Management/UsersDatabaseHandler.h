@@ -48,6 +48,8 @@ public:
     void deleteImage(string username, string gallery, string image);
     void insertImageToCollection(string newImage, string gallery);
     void insertImagesModified(string username,string images,string gallery);
+    vector<string> getMetadata(string image);
+    void modifyMetadata(string image, string infoAuthor, string infoYear, string infoSize, string infoDesc);
 
 
     void emptyGallerySet();

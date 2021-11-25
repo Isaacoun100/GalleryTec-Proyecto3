@@ -26,7 +26,11 @@ int main() {
 
     //DBhandler.getGalleries("USUARIOTEC");
     //DBhandler.getImages("NEW_USER__","Gallery4");
-    DBhandler.deleteImage("USUARIOTEC","Gallery02","Image_00002__");
+    //DBhandler.deleteImage("USUARIOTEC","Gallery02","Image_00002__");
+    //DBhandler.getMetadata("Image_00002__");
+    //DBhandler.addNewImage("USUARIOTEC","Gallery02","Image_0003_");
+    //DBhandler.getMetadata("Image_0003_");
+    DBhandler.modifyMetadata("Image_0003_","Michael","2021","5 MB", "Imagen en .ppm");
 
 
 
