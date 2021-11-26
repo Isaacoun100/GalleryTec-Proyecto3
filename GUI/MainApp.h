@@ -8,6 +8,7 @@
 #include <QFileDialog>
 #include <QPixmap>
 #include <QString>
+#include <vector>
 #include "GUI/MetadataWindow.h"
 #include "MemoryManagement/FileHandler.h"
 
@@ -30,7 +31,7 @@ public:
     /**
      * @brief constructor de la clase MainApp.
      */
-    MainApp();
+    MainApp(string username, string password);
 
     /**
      * @brief destructor de la clase MainApp.
@@ -46,6 +47,7 @@ private:
     QPushButton *siguienteButton;
     QPushButton *eliminarImagenButton;
     QPushButton *agregarGaleriaButton;
+    QPushButton *agregarImagenButton;
     const QSize BUTTON_SIZE = QSize(50, 50);
 
     QLabel *nombreGaleria;
@@ -57,6 +59,9 @@ private:
 
     QComboBox *verGalerias;
     QLineEdit *agregarGaleria;
+
+    string username;
+    string password;
 
     /**
      * @brief metodo encargado de crear los botones y mostrarlos en pantalla.
@@ -97,6 +102,8 @@ public slots:
     void clickedAnterior();
 
     void clickedSiguiente();
+
+    void clickedAgregarImagen();
 
 };
 

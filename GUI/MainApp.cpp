@@ -4,7 +4,7 @@
 
 #include "MainApp.h"
 
-MainApp::MainApp() {
+MainApp::MainApp(string username, string password) {
     windowApp.resize(1000,550);
     windowApp.setWindowTitle(QApplication::translate("toplevel","MainApp"));
     windowApp.setFixedSize(windowApp.size().width(),windowApp.size().height());
@@ -44,12 +44,18 @@ void MainApp::setUpBotones() {
     agregarGaleriaButton->move(175,25);
     agregarGaleriaButton->show();
 
+    agregarImagenButton = new QPushButton(QApplication::translate("childwidget","Agregar imagen"), &windowApp);
+    agregarImagenButton->setMinimumSize(BUTTON_SIZE);
+    agregarImagenButton->move(300,25);
+    agregarImagenButton->show();
+
 
     QObject::connect(verMetadataButton,SIGNAL(clicked()),this,SLOT(clickedVerMetadata()));
     QObject::connect(anteriorButton,SIGNAL(clicked()),this,SLOT(clickedAnterior()));
     QObject::connect(siguienteButton,SIGNAL(clicked()),this,SLOT(clickedSiguiente()));
     QObject::connect(eliminarImagenButton,SIGNAL(clicked()),this,SLOT(clickedEliminarImagen()));
     QObject::connect(agregarGaleriaButton,SIGNAL(clicked()),this,SLOT(clickedAgregarGaleria()));
+    QObject::connect(agregarImagenButton,SIGNAL(clicked()),this,SLOT(clickedAgregarImagen()));
 
 
 }
@@ -65,9 +71,6 @@ void MainApp::setUpCombobox() {
     verGalerias = new QComboBox(&windowApp);
     verGalerias->move(25, 50);
 
-    for(int i = 0; i < 10; i++){
-        verGalerias->addItem("galeria " + QString::number(i) );
-    }
     verGalerias->show();
 
 }
@@ -98,7 +101,13 @@ void MainApp::clickedEliminarImagen() {
 }
 
 void MainApp::clickedAgregarGaleria() {
-    fileHandler.addgallery()
+    fileHandler.addgallery(username, nombreGaleria->text().toStdString());
+    //vector<string> galeriasVector = fileHandler.getgalleries(username);
+
+    //for(int i = 0; i < galeriasVector.size(); i++){
+        //verGalerias->addItem(QString::fromStdString(galeriasVector[i]));
+    //}
+    //verGalerias->show();
 
 }
 
@@ -107,6 +116,16 @@ void MainApp::clickedAnterior() {
 }
 
 void MainApp::clickedSiguiente() {
+
+
+}
+
+void MainApp::clickedAgregarImagen() {
+    string ID = username;
+    fileChooser = QFileDialog::getOpenFileName(&windowApp, tr("Open Image"), ".../GalleryTEC/imagenes", tr("mage Files (*.*)"));
+    cout << fileChooser.toStdString() << endl;
+
+
 
 }
 

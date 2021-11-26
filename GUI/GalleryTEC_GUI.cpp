@@ -76,7 +76,9 @@ void GalleryTEC_GUI::clickedRegistrarse() {
 
 void GalleryTEC_GUI::clickedEntrar() {
     //if(username->text().toStdString() == )
-    ma = new MainApp();
+    string usuario = username->text().toStdString();
+    string clave = password->text().toStdString();
+    ma = new MainApp(usuario, clave);
 
     //ma->show();
     window.hide();
