@@ -3,6 +3,7 @@
 //
 
 #include "SignInWindow.h"
+using namespace std;
 
 SignInWindow::SignInWindow() {
     windowSI.resize(400,225);
@@ -47,7 +48,7 @@ void SignInWindow::setUpEntries() {
 
     newUsername->show();
     newPassword->show();
-    clickedRegistrar(newUsername->text(), newPassword->text());
+
 
 }
 
@@ -58,9 +59,10 @@ void SignInWindow::setUpWidgets() {
 
 }
 
-void SignInWindow::clickedRegistrar(QString usr, QString pswd) {
+void SignInWindow::clickedRegistrar() {
+    string usr = newUsername->text().toStdString();
+    string pswd = newPassword->text().toStdString();
     DBhandler.insertUserToDB(usr, pswd);
-
 }
 
 

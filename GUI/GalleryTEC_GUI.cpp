@@ -11,7 +11,7 @@ GalleryTEC_GUI::GalleryTEC_GUI() {
     window.setWindowTitle(QApplication::translate("toplevel","LogIn-GalleryTEC"));
     window.setFixedSize(window.size().width(),window.size().height());
     window.show();
-    DBhandler;
+    //DBhandler;
 
 
 
@@ -75,7 +75,9 @@ void GalleryTEC_GUI::clickedRegistrarse() {
 }
 
 void GalleryTEC_GUI::clickedEntrar() {
+    //if(username->text().toStdString() == )
     ma = new MainApp();
+
     //ma->show();
     window.hide();
 

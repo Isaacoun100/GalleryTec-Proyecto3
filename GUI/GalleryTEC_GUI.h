@@ -30,7 +30,7 @@ using namespace std;
 class GalleryTEC_GUI:public QMainWindow {
 Q_OBJECT
 public:
-    UsersDatabaseHandler DBhandler;
+    //UsersDatabaseHandler DBhandler;
     /**
      * @brief constructor de la clase GalleryTEC_GUI.
      */

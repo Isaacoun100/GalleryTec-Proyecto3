@@ -64,7 +64,7 @@ public slots:
     /**
      * @brief este metodo se llama cuando se le da click al boton "Registrar" y abre la ventana creada por la clase GalleryTEC_GUI.
      */
-    void clickedRegistrar(QString usr, QString pswd);
+    void clickedRegistrar();
 
 };
 
