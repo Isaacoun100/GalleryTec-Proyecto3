@@ -47,8 +47,10 @@ private:
 
     QLabel *nombreGaleria;
     QLabel *nombreImagen;
+    QLabel *labelImage;
 
     QString nombreCombobox;
+    QString fileChooser;
 
     QComboBox *verGalerias;
 
@@ -72,6 +74,8 @@ private:
      */
     void setUpWidgets();
 
+    void mostrarImagen();
+
 public slots:
 
     /**
@@ -85,6 +89,10 @@ public slots:
     void clickedEliminarImagen();
 
     void clickedAgregarImagen();
+
+    void clickedAnterior();
+
+    void clickedSiguiente();
 
 };
 

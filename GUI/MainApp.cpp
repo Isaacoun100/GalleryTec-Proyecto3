@@ -41,6 +41,9 @@ void MainApp::setUpBotones() {
 
 
     QObject::connect(verMetadataButton,SIGNAL(clicked()),this,SLOT(clickedVerMetadata()));
+    QObject::connect(anteriorButton,SIGNAL(clicked()),this,SLOT(clickedAnterior()));
+    QObject::connect(siguienteButton,SIGNAL(clicked()),this,SLOT(clickedSiguiente()));
+    QObject::connect(eliminarImagenButton,SIGNAL(clicked()),this,SLOT(clickedEliminarImagen()));
 
 }
 
@@ -60,6 +63,14 @@ void MainApp::setUpCombobox() {
 
 }
 
+void MainApp::mostrarImagen() {
+    QImage image;
+    image.load(fileChooser);
+    image = image.scaled(200, 200, Qt::KeepAspectRatio, Qt::FastTransformation);
+    labelImage->setPixmap(QPixmap::fromImage(image));
+
+}
+
 void MainApp::setUpWidgets() {
     setUpBotones();
     setUpLabels();
@@ -74,10 +85,21 @@ void MainApp::clickedVerMetadata() {
 
 void MainApp::clickedEliminarImagen() {
 
+
 }
 
 void MainApp::clickedAgregarImagen() {
 
 }
+
+void MainApp::clickedAnterior() {
+
+}
+
+void MainApp::clickedSiguiente() {
+
+}
+
+
 
 
