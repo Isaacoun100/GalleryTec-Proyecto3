@@ -62,7 +62,7 @@ void SignInWindow::setUpWidgets() {
 void SignInWindow::clickedRegistrar() {
     string usr = newUsername->text().toStdString();
     string pswd = newPassword->text().toStdString();
-    DBhandler.insertUserToDB(usr, pswd);
+    //DBhandler.insertUserToDB(usr, pswd);
     fileHandler.adduser(usr);
 }
 

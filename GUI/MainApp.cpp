@@ -61,6 +61,11 @@ void MainApp::setUpBotones() {
     modificarMetadataButton->setMinimumSize(BUTTON_SIZE2);
     modificarMetadataButton->show();
 
+    eliminarGaleriaButton = new QPushButton(QApplication::translate("childwidget","Eliminar Galeria"), &windowApp);
+    eliminarGaleriaButton->move(550,25);
+    eliminarGaleriaButton->setMinimumSize(BUTTON_SIZE);
+    eliminarGaleriaButton->show();
+
     QObject::connect(modificarMetadataButton,SIGNAL(clicked()),this,SLOT(clickedModificarMetadata()));
 
 
@@ -71,6 +76,7 @@ void MainApp::setUpBotones() {
     QObject::connect(agregarGaleriaButton,SIGNAL(clicked()),this,SLOT(clickedAgregarGaleria()));
     QObject::connect(agregarImagenButton,SIGNAL(clicked()),this,SLOT(clickedAgregarImagen()));
     QObject::connect(confirmarGaleria,SIGNAL(clicked()),this,SLOT(clickedConfirmarGaleria()));
+    QObject::connect(eliminarGaleriaButton,SIGNAL(clicked()),this,SLOT(clickedEliminarGaleria()));
 
 
 }
@@ -97,10 +103,10 @@ void MainApp::setUpCombobox() {
 }
 
 void MainApp::mostrarImagen() {
-    QImage image;
-    image.load(fileChooser);
-    image = image.scaled(200, 200, Qt::KeepAspectRatio, Qt::FastTransformation);
-    labelImage->setPixmap(QPixmap::fromImage(image));
+    //QImage image;
+    //image.load(fileHandler.getimage(currentImage));
+    //image = image.scaled(200, 200, Qt::KeepAspectRatio, Qt::FastTransformation);
+    //labelImage->setPixmap(QPixmap::fromImage(image));
 
 }
 
@@ -117,29 +123,48 @@ void MainApp::clickedVerMetadata() {
     metadataWindow->setWindowTitle(QApplication::translate("toplevel","Ver-Metadata"));
     metadataWindow->setFixedSize(metadataWindow->size().width(),metadataWindow->size().height());
 
-    imagenData2 = new QLabel(QApplication::translate("childwidget", "Imagen: "), metadataWindow);
+    vector<string> metadataList;
+    metadataList = metadataDatabaseHandler.getMetadata(currentImage);
+    const char *qstr = metadataList[0].c_str();
+    const char *qstr1 = metadataList[1].c_str();
+    const char *qstr2 = metadataList[2].c_str();
+    const char *qstr3 = metadataList[3].c_str();
+    const char *qstr4 = metadataList[4].c_str();
+
+    imagenData2 = new QLabel(QApplication::translate("childwidget", "Imagen: " + *qstr), metadataWindow);
     imagenData2->move(50, 20);
     imagenData2->show();
 
-    autorData2 = new QLabel(QApplication::translate("childwidget", "Autor: "), metadataWindow);
+    autorData2 = new QLabel(QApplication::translate("childwidget", "Autor: " + *qstr1), metadataWindow);
     autorData2->move(50, 70);
     autorData2->show();
 
-    fechaData2 = new QLabel(QApplication::translate("childwidget", "Fecha: "), metadataWindow);
+    fechaData2 = new QLabel(QApplication::translate("childwidget", "Fecha: " + *qstr2), metadataWindow);
     fechaData2->move(50, 120);
     fechaData2->show();
 
-    tamanoData2 = new QLabel(QApplication::translate("childwidget", "Tamano: "), metadataWindow);
+    tamanoData2 = new QLabel(QApplication::translate("childwidget", "Tamano: " + *qstr3), metadataWindow);
     tamanoData2->move(50, 170);
     tamanoData2->show();
 
-    descripcionData2 = new QLabel(QApplication::translate("childwidget", "Descripcion: "), metadataWindow);
+    descripcionData2 = new QLabel(QApplication::translate("childwidget", "Descripcion: " + *qstr4), metadataWindow);
     descripcionData2->move(50, 220);
     descripcionData2->show();
+
+    metadataWindow->show();
 
 }
 
 void MainApp::clickedEliminarImagen() {
+    fileHandler.deleteimage(currentImage);
+    currentImages = fileHandler.getimagesID(currentGallery);
+    if(currentImages.size() == 0){
+        imagePos = 0;
+    }else{
+        currentImage = currentImages[0];
+        imagePos = 0;
+    }
+    metadataDatabaseHandler.deleteMetadata(currentImage);
 
 
 }
@@ -157,10 +182,28 @@ void MainApp::clickedAgregarGaleria() {
 }
 
 void MainApp::clickedAnterior() {
+    if(imagePos == -1){
+        imagePos = currentImages.size()-1;
+        currentImage = currentImages[imagePos];
+        mostrarImagen();
+    }else{
+        currentImage = currentImages[imagePos];
+        imagePos--;
+        mostrarImagen();
+    }
 
 }
 
 void MainApp::clickedSiguiente() {
+    if(imagePos == currentImages.size()){
+        imagePos = 0;
+        currentImage = currentImages[0];
+        mostrarImagen();
+    }else{
+        currentImage = currentImages[imagePos];
+        imagePos++;
+        mostrarImagen();
+    }
 
 
 }
@@ -173,6 +216,7 @@ void MainApp::clickedAgregarImagen() {
     ReadWrite readWrite;
     imageText = readWrite.readFile(fileChooser.toStdString());
     fileHandler.imageallocator(imageText, currentGallery, ID);
+    metadataDatabaseHandler.addNewMetadata(ID, currentGallery);
 
 
 }
@@ -191,8 +235,16 @@ string MainApp::pathTranslate(string path) {
 }
 
 void MainApp::clickedConfirmarGaleria() {
-    vector<string> nombresImg = fileHandler.getimagesID(currentGallery);
-    string currentImageID = nombresImg[0];
+    currentImages = fileHandler.getimagesID(currentGallery);
+    //string currentImageID = nombresImg[0];
+    if(currentImages.size() == 0){
+        imagePos = 0;
+    }else{
+        currentImage = currentImages[0];
+        imagePos = 0;
+        mostrarImagen();
+    }
+
 
 }
 
@@ -222,6 +274,13 @@ void MainApp::clickedModificarMetadata() {
     descripcionData->move(50, 220);
     descripcionData->show();
 
+    actualizarMetadataInfoButton = new QPushButton(QApplication::translate("childwidget","Actualizar Metadata"), ModificarMetada);
+    actualizarMetadataInfoButton->move(25,275);
+    actualizarMetadataInfoButton->setMinimumSize(BUTTON_SIZE3);
+    actualizarMetadataInfoButton->show();
+
+    QObject::connect(actualizarMetadataInfoButton,SIGNAL(clicked()),this,SLOT(clickActualizar()));
+
     imagenEntry = new QLineEdit(QApplication::translate("childwidget",""),ModificarMetada);
     autorEntry = new QLineEdit(QApplication::translate("childwidget",""),ModificarMetada);
     fechaEntry = new QLineEdit(QApplication::translate("childwidget",""),ModificarMetada);
@@ -244,6 +303,36 @@ void MainApp::clickedModificarMetadata() {
 }
 
 void MainApp::clickActualizar() {
+    metadataDatabaseHandler.modifyMetadata(currentImage, autorData->text().toStdString(), fechaData->text().toStdString(), tamanoData->text().toStdString(), descripcionData->text().toStdString());
+
+}
+
+void MainApp::clickedEliminarGaleria() {
+    fileHandler.deleteGalery(currentGallery);
+    currentGalleries = fileHandler.getgalleries(username);
+    verGalerias->clear();
+
+    for(int i = 0; i < currentGalleries.size(); i++){
+        verGalerias->addItem(QString::fromStdString(currentGalleries[i]));
+    }
+    verGalerias->show();
+    if(currentGalleries.size() == 0){
+        vector<string> nullVector;
+        imagePos = 0;
+        currentGallery = "";
+        currentImage = "";
+        currentImages = nullVector;
+    }else{
+        currentGallery = currentGalleries[0];
+        currentImages = fileHandler.getimagesID(currentGallery);
+        if(currentImages.size() == 0){
+            imagePos = 0;
+        }else{
+            currentImage = currentImages[0];
+            imagePos = 0;
+        }
+    }
+
 
 }
 

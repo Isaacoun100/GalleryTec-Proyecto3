@@ -20,7 +20,7 @@ using namespace std;
 class SignInWindow:public QWindow {
     Q_OBJECT
 public:
-    UsersDatabaseHandler DBhandler;
+    //UsersDatabaseHandler DBhandler;
     /**
      * @brief constructor de la clase SignInWindow.
      */

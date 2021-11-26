@@ -62,7 +62,9 @@ add_executable(GalleryTec_Proyecto3
         Database_Management/UsersDatabaseHandler.cpp
         Database_Management/UsersDatabaseHandler.h
         GUI/MetadataWindow.cpp
-        GUI/MetadataWindow.h)
+        GUI/MetadataWindow.h
+        Database_Management/MetadataDatabaseHandler.cpp
+        Database_Management/MetadataDatabaseHandler.h)
 
 target_link_libraries(GalleryTec_Proyecto3 Qt5::Widgets)
 target_link_libraries(GalleryTec_Proyecto3 ${LIBMONGOCXX_LIBRARIES})

@@ -11,6 +11,7 @@
 #include <vector>
 #include "MemoryManagement/FileHandler.h"
 #include "local/ReadWrite.h"
+#include "Database_Management/MetadataDatabaseHandler.h"
 
 using namespace std;
 
@@ -28,6 +29,7 @@ using namespace std;
 class MainApp:public QWindow {
     Q_OBJECT
 public:
+    MetadataDatabaseHandler metadataDatabaseHandler;
     /**
      * @brief constructor de la clase MainApp.
      */
@@ -47,14 +49,16 @@ private:
     QPushButton *verMetadataButton;
     QPushButton *siguienteButton;
     QPushButton *eliminarImagenButton;
+    QPushButton *eliminarGaleriaButton;
     QPushButton *agregarGaleriaButton;
     QPushButton *agregarImagenButton;
     QPushButton *confirmarGaleria;
     const QSize BUTTON_SIZE = QSize(50, 50);
 
     QPushButton *modificarMetadataButton;
-    QPushButton *actualizarinfoButton;
+    QPushButton *actualizarMetadataInfoButton;
     const QSize BUTTON_SIZE2 = QSize(90, 50);
+    const QSize BUTTON_SIZE3 = QSize(150, 50);
     QLabel *imagenData;
     QLabel *autorData;
     QLabel *fechaData;
@@ -88,7 +92,8 @@ private:
     vector<string> currentGalleries;
     string currentGallery;
     vector<string> currentImages;
-    int imagePos = 0;
+    string currentImage;
+    int imagePos;
 
 
     /**
@@ -111,8 +116,14 @@ private:
      */
     void setUpWidgets();
 
+    /**
+     * @brief metodo encargado de mostrar las imagenes seleccionadas una por una en pantalla.
+     */
     void mostrarImagen();
 
+    /**
+     * @brief metodo encargado de dividir el path de una imagen seleccionada.
+     */
     string pathTranslate(string path);
 
 public slots:
@@ -140,6 +151,8 @@ public slots:
     void clickedModificarMetadata();
 
     void clickActualizar();
+
+    void clickedEliminarGaleria();
 
 };
 
