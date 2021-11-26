@@ -31,13 +31,6 @@ public:
      */
     void writeFile(string path , string result);
 
-    /**
-     * This method appends the given result into the file of the given path.
-     * @param path
-     * @param result
-     */
-    void appendFile(string path, string result);
-
 private:
     /**
      * Returns the location of the present working directory

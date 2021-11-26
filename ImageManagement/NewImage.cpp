@@ -5,13 +5,6 @@ struct page{
     string compressed;
 };
 
-struct CompressedImage{
-
-    string compressedBinary;
-    vector<page> dictionary;
-
-};
-
 string NewImage::readImage(string path) {
     ReadWrite readWrite;
     return readWrite.readFile(path);
@@ -50,8 +43,6 @@ string NewImage::characterList(string path){
 
 string NewImage::createDictionary(string path) {
 
-    CompressedImage newCompressedImage;
-
     string content = characterList(path);
     string times = frecuencyList(path,content);
 
@@ -87,26 +78,109 @@ string NewImage::createDictionary(string path) {
 
 }
 
-string NewImage::compressImage(string path){
-    string dictionary = createDictionary(path);
-    string image = path;
-    string final;
+vector<page> createVector(string dictionary){
+    string buffer;
+    char value = 0;
+    int size=0, k=0;
 
-    for(int i=0; i<image.size(); i++){
-        string compression;
+    for(int i=0; i<dictionary.size(); i++){
+        if(dictionary[i]==':'){size++;}
+    }
 
-        for(int j=0; j<dictionary.size(); j++){
-            if(image[i]==dictionary[j]){
-                while(dictionary[j]!='/'){
-                    if(dictionary[j]=='0' || dictionary[j]=='1'){ final+=dictionary[j];}
-                    j++;
-                }
-                j=dictionary.size();
-            }
+    vector<page> result;
+    result.resize(size);
+
+
+    for(int i=0; i<dictionary.size();i++){
+
+        if(dictionary[i+1]==':'){
+            value=dictionary[i];
+            i++;
         }
 
+        else if(dictionary[i]=='0' || dictionary[i]=='1'){
+            buffer+=dictionary[i];
+        }
+
+        else if(dictionary[i]=='/'){
+            page newPage;
+            newPage.data=value;
+            newPage.compressed=buffer;
+            result.at(k)=newPage;
+            buffer.clear();
+            k++;
+        }
+    }
+
+    return result;
+
+}
+
+string NewImage::compressImage(string image, string id){
+    string final;
+    string dictionary= createDictionary(image);
+
+    ReadWrite readWrite;
+    readWrite.writeFile("local/dictionary.txt", readWrite.readFile("local/dictionary.txt")+"["+id+"$"+dictionary+"]\n" );
+
+    vector<page> reference = createVector(dictionary);
+
+    for(int i=0; i<image.size();i++){
+        for(int j=0; j<reference.size();j++){
+            if(image[i]==reference.at(j).data){
+                final+=reference.at(j).compressed;
+            }
+        }
     }
 
     return final;
 }
 
+string NewImage::decompressImage(string image, string id) {
+    ReadWrite readWrite;
+
+    string final, buffer;
+
+    string dictionary, vault;
+    vault=readWrite.readFile("local/dictionary.txt");
+
+    for(int i=0; i<vault.size(); i++){
+        if(vault[i]=='['){
+            i++;
+            while(vault[i]!='$'){
+                buffer+=vault[i];
+                i++;
+            }
+        }
+
+        if(buffer==id){
+            i++;
+            while(vault[i]!=']'){
+                dictionary+=vault[i];
+                i++;
+            }
+
+            i=vault.size();
+        }
+        else{
+            buffer.clear();
+        }
+
+    }
+
+    vector<page> reference = createVector(dictionary) ;
+
+    buffer.clear();
+
+    for(int i=0; i<image.size();i++){
+        buffer+=image[i];
+        for(int j=0;j<reference.size();j++){
+            if(buffer==reference.at(j).compressed){
+                final+=reference.at(j).data;
+                buffer.clear();
+            }
+        }
+    }
+
+    return final;
+}

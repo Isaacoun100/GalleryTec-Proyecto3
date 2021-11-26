@@ -115,11 +115,11 @@ string FileHandler::pathbuilder(string ID, int disc) {
 }
 
 string FileHandler::getimage(string ID) {
+    NewImage newImage;
     int memoryBlock=this->getImgMemoryBlock(ID);
     int memoryBlockaux=memoryBlock;
     int parityblock=1;
     string compressedimage;
-    string decompressedimage;
     //encontrar bloque que contiene la paridad para ignorarlo (no es parte de la imagen)
     while((4*(memoryBlockaux/4))-(4*((memoryBlock/4)+1))!=0){
         memoryBlockaux++;
@@ -130,9 +130,8 @@ string FileHandler::getimage(string ID) {
     }
 
     compressedimage=this->fileReader(ID,parityblock);
-    //Decompressing
 
-    return compressedimage;
+    return  newImage.decompressImage(compressedimage, newImage.createDictionary(compressedimage));
 }
 
 
@@ -141,13 +140,10 @@ void FileHandler::imageallocator(string image,string gallery,string ID) {
     this->GIconnection(ID,gallery);
     this->ImageDirection(ID);
     vector<string> partitions;//Imagen partida en tres
-    partitions.push_back("0010");
-    partitions.push_back("0000");
-    partitions.push_back("0110");
 
     int partitionindex=0;
 
-    string compressed = newImage.compressImage(image);
+    string compressed = newImage.compressImage(image, ID);
 
     //aquí se hace la partición
 
