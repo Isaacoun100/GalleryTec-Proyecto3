@@ -39,22 +39,31 @@ void MainApp::setUpBotones() {
     eliminarImagenButton->move(175,475);
     eliminarImagenButton->show();
 
+    agregarGaleriaButton = new QPushButton(QApplication::translate("childwidget","Agregar Galeria"), &windowApp);
+    agregarGaleriaButton->setMinimumSize(BUTTON_SIZE);
+    agregarGaleriaButton->move(175,25);
+    agregarGaleriaButton->show();
+
 
     QObject::connect(verMetadataButton,SIGNAL(clicked()),this,SLOT(clickedVerMetadata()));
     QObject::connect(anteriorButton,SIGNAL(clicked()),this,SLOT(clickedAnterior()));
     QObject::connect(siguienteButton,SIGNAL(clicked()),this,SLOT(clickedSiguiente()));
     QObject::connect(eliminarImagenButton,SIGNAL(clicked()),this,SLOT(clickedEliminarImagen()));
+    QObject::connect(agregarGaleriaButton,SIGNAL(clicked()),this,SLOT(clickedAgregarGaleria()));
+
 
 }
 
 void MainApp::setUpLabels() {
-
+    agregarGaleria = new QLineEdit(QApplication::translate("childwidget",""),&windowApp);
+    agregarGaleria->move(25,25);
+    agregarGaleria->show();
 }
 
 
 void MainApp::setUpCombobox() {
     verGalerias = new QComboBox(&windowApp);
-    verGalerias->move(25, 25);
+    verGalerias->move(25, 50);
 
     for(int i = 0; i < 10; i++){
         verGalerias->addItem("galeria " + QString::number(i) );
@@ -88,7 +97,8 @@ void MainApp::clickedEliminarImagen() {
 
 }
 
-void MainApp::clickedAgregarImagen() {
+void MainApp::clickedAgregarGaleria() {
+    fileHandler.addgallery()
 
 }
 

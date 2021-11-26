@@ -9,6 +9,7 @@
 #include <QPixmap>
 #include <QString>
 #include "Database_Management/UsersDatabaseHandler.h"
+#include "MemoryManagement/FileHandler.h"
 
 using namespace std;
 
@@ -32,6 +33,7 @@ public:
 
 private:
     QWidget windowSI;
+    FileHandler fileHandler;
     QLineEdit *newUsername;
     QLineEdit *newPassword;
     QPushButton *newUserButton;

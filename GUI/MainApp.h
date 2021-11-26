@@ -9,6 +9,7 @@
 #include <QPixmap>
 #include <QString>
 #include "GUI/MetadataWindow.h"
+#include "MemoryManagement/FileHandler.h"
 
 using namespace std;
 
@@ -39,10 +40,12 @@ public:
 private:
     QWidget windowApp;
     MetadataWindow *mtw;
+    FileHandler fileHandler;
     QPushButton *anteriorButton;
     QPushButton *verMetadataButton;
     QPushButton *siguienteButton;
     QPushButton *eliminarImagenButton;
+    QPushButton *agregarGaleriaButton;
     const QSize BUTTON_SIZE = QSize(50, 50);
 
     QLabel *nombreGaleria;
@@ -53,6 +56,7 @@ private:
     QString fileChooser;
 
     QComboBox *verGalerias;
+    QLineEdit *agregarGaleria;
 
     /**
      * @brief metodo encargado de crear los botones y mostrarlos en pantalla.
@@ -88,7 +92,7 @@ public slots:
      */
     void clickedEliminarImagen();
 
-    void clickedAgregarImagen();
+    void clickedAgregarGaleria();
 
     void clickedAnterior();
 

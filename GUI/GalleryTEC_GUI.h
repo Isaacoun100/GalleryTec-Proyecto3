@@ -12,6 +12,7 @@
 #include "MainApp.h"
 #include "SignInWindow.h"
 #include "Database_Management/UsersDatabaseHandler.h"
+#include "MemoryManagement/FileHandler.h"
 
 using namespace std;
 
@@ -45,6 +46,7 @@ public:
 private:
     QWidget window;
     MainApp *ma;
+    FileHandler fileHandler;
     SignInWindow *siw;
     QLineEdit *username;
     QLineEdit *password;
