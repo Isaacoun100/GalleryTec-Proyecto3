@@ -85,6 +85,7 @@ private:
     QString nombreCombobox;
     QString fileChooser;
 
+
     QComboBox *verGalerias;
     QLineEdit *agregarGaleria;
 
