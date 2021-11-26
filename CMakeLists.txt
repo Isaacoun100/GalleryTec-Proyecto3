@@ -46,6 +46,16 @@ add_executable(GalleryTec_Proyecto3
         GUI/GalleryTEC_GUI.cpp
         GUI/MainApp.cpp
         GUI/MainApp.h
+        MemoryManagement/FileHandler.cpp
+        MemoryManagement/FileHandler.h
+        GUI/MainApp.h
+        local/ReadWrite.cpp
+        local/ReadWrite.h
+        huffman/HuffmanCompresion.cpp
+        huffman/HuffmanCompresion.h
+        ImageManagement/NewImage.cpp
+        ImageManagement/NewImage.h
+        GUI/MainApp.h
         GUI/SignInWindow.cpp
         GUI/SignInWindow.h
         GUI/MainApp.h
