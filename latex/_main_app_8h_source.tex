@@ -1,0 +1,130 @@
+\hypertarget{_main_app_8h_source}{}\doxysection{Main\+App.\+h}
+\label{_main_app_8h_source}\index{GUI/MainApp.h@{GUI/MainApp.h}}
+\mbox{\hyperlink{_main_app_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{//}}
+\DoxyCodeLine{2 \textcolor{comment}{// Created by maxgm on 21/11/21.}}
+\DoxyCodeLine{3 \textcolor{comment}{//}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <QtWidgets>}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <QObject>}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include <QMainWindow>}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include <QFileDialog>}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include <QPixmap>}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include <QString>}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include "{}MemoryManagement/FileHandler.h"{}}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include "{}local/ReadWrite.h"{}}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include "{}Database\_Management/MetadataDatabaseHandler.h"{}}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{keyword}{using namespace }std;}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#ifndef GALLERYTEC\_PROYECTO3\_MAINAPP\_H}}
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#define GALLERYTEC\_PROYECTO3\_MAINAPP\_H}}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{29 \textcolor{keyword}{class }\mbox{\hyperlink{class_main_app}{MainApp}}:\textcolor{keyword}{public} QWindow \{}
+\DoxyCodeLine{30     Q\_OBJECT}
+\DoxyCodeLine{31 \textcolor{keyword}{public}:}
+\DoxyCodeLine{32     \mbox{\hyperlink{class_metadata_database_handler}{MetadataDatabaseHandler}} metadataDatabaseHandler;}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{37     \mbox{\hyperlink{class_main_app_ad14c906444c1186765afd292163af223}{MainApp}}(\textcolor{keywordtype}{string} username, \textcolor{keywordtype}{string} password);}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{42     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_main_app_a1da72f01017840ab6165e33b76cc8482}{\string~MainApp}}();}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44 \textcolor{keyword}{private}:}
+\DoxyCodeLine{45     QWidget windowApp;}
+\DoxyCodeLine{46     QMainWindow * metadataWindow;}
+\DoxyCodeLine{47     QMainWindow * ModificarMetada;}
+\DoxyCodeLine{48     \mbox{\hyperlink{class_file_handler}{FileHandler}} fileHandler;}
+\DoxyCodeLine{49     QPushButton *anteriorButton;}
+\DoxyCodeLine{50     QPushButton *verMetadataButton;}
+\DoxyCodeLine{51     QPushButton *siguienteButton;}
+\DoxyCodeLine{52     QPushButton *eliminarImagenButton;}
+\DoxyCodeLine{53     QPushButton *eliminarGaleriaButton;}
+\DoxyCodeLine{54     QPushButton *agregarGaleriaButton;}
+\DoxyCodeLine{55     QPushButton *agregarImagenButton;}
+\DoxyCodeLine{56     QPushButton *confirmarGaleria;}
+\DoxyCodeLine{57     \textcolor{keyword}{const} QSize BUTTON\_SIZE = QSize(50, 50);}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{59     QPushButton *modificarMetadataButton;}
+\DoxyCodeLine{60     QPushButton *actualizarMetadataInfoButton;}
+\DoxyCodeLine{61     \textcolor{keyword}{const} QSize BUTTON\_SIZE2 = QSize(90, 50);}
+\DoxyCodeLine{62     \textcolor{keyword}{const} QSize BUTTON\_SIZE3 = QSize(150, 50);}
+\DoxyCodeLine{63     QLabel *imagenData;}
+\DoxyCodeLine{64     QLabel *autorData;}
+\DoxyCodeLine{65     QLabel *fechaData;}
+\DoxyCodeLine{66     QLabel *tamanoData;}
+\DoxyCodeLine{67     QLabel *descripcionData;}
+\DoxyCodeLine{68 }
+\DoxyCodeLine{69     QLabel *imagenData2;}
+\DoxyCodeLine{70     QLabel *autorData2;}
+\DoxyCodeLine{71     QLabel *fechaData2;}
+\DoxyCodeLine{72     QLabel *tamanoData2;}
+\DoxyCodeLine{73     QLabel *descripcionData2;}
+\DoxyCodeLine{74 }
+\DoxyCodeLine{75     QLineEdit *imagenEntry;}
+\DoxyCodeLine{76     QLineEdit *autorEntry;}
+\DoxyCodeLine{77     QLineEdit *fechaEntry;}
+\DoxyCodeLine{78     QLineEdit *tamanoEntry;}
+\DoxyCodeLine{79     QLineEdit *descripcionEntry;}
+\DoxyCodeLine{80 }
+\DoxyCodeLine{81     QString nombreGaleria;}
+\DoxyCodeLine{82     QLabel *nombreImagen;}
+\DoxyCodeLine{83     QLabel *labelImage;}
+\DoxyCodeLine{84 }
+\DoxyCodeLine{85     QString nombreCombobox;}
+\DoxyCodeLine{86     QString fileChooser;}
+\DoxyCodeLine{87 }
+\DoxyCodeLine{88 }
+\DoxyCodeLine{89     QComboBox *verGalerias;}
+\DoxyCodeLine{90     QLineEdit *agregarGaleria;}
+\DoxyCodeLine{91 }
+\DoxyCodeLine{92     \textcolor{keywordtype}{string} username;}
+\DoxyCodeLine{93     \textcolor{keywordtype}{string} password;}
+\DoxyCodeLine{94     vector<string> currentGalleries;}
+\DoxyCodeLine{95     \textcolor{keywordtype}{string} currentGallery;}
+\DoxyCodeLine{96     vector<string> currentImages;}
+\DoxyCodeLine{97     \textcolor{keywordtype}{string} currentImage;}
+\DoxyCodeLine{98     \textcolor{keywordtype}{int} imagePos;}
+\DoxyCodeLine{99 }
+\DoxyCodeLine{100 }
+\DoxyCodeLine{104     \textcolor{keywordtype}{void} setUpBotones();}
+\DoxyCodeLine{105 }
+\DoxyCodeLine{109     \textcolor{keywordtype}{void} setUpLabels();}
+\DoxyCodeLine{110 }
+\DoxyCodeLine{114     \textcolor{keywordtype}{void} setUpCombobox();}
+\DoxyCodeLine{115 }
+\DoxyCodeLine{119     \textcolor{keywordtype}{void} setUpWidgets();}
+\DoxyCodeLine{120 }
+\DoxyCodeLine{124     \textcolor{keywordtype}{void} mostrarImagen();}
+\DoxyCodeLine{125 }
+\DoxyCodeLine{129     \textcolor{keywordtype}{string} pathTranslate(\textcolor{keywordtype}{string} path);}
+\DoxyCodeLine{130 }
+\DoxyCodeLine{131 \textcolor{keyword}{public} slots:}
+\DoxyCodeLine{132 }
+\DoxyCodeLine{136     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_main_app_ac7be63d3738b2fea8a1e80536ca9996c}{clickedVerMetadata}}();}
+\DoxyCodeLine{137 }
+\DoxyCodeLine{141     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_main_app_a77dce5ec2be62422508b7f7c99a136b8}{clickedEliminarImagen}}();}
+\DoxyCodeLine{142 }
+\DoxyCodeLine{146     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_main_app_a47ad756c919844489028892acc56917c}{clickedAgregarGaleria}}();}
+\DoxyCodeLine{147 }
+\DoxyCodeLine{151     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_main_app_a0c681aee0b94f7ce2191773051df5602}{clickedAnterior}}();}
+\DoxyCodeLine{152 }
+\DoxyCodeLine{156     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_main_app_a02995fd895c354056d8e1076a6f113fc}{clickedSiguiente}}();}
+\DoxyCodeLine{157 }
+\DoxyCodeLine{161     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_main_app_a277a2548efa969aa7bc87a931079a730}{clickedAgregarImagen}}();}
+\DoxyCodeLine{162 }
+\DoxyCodeLine{166     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_main_app_a179e6b63df4e43120349813fe700d965}{clickedConfirmarGaleria}}();}
+\DoxyCodeLine{167 }
+\DoxyCodeLine{171     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_main_app_a0900ceba309c07a2d55f9591539b8a6e}{clickedModificarMetadata}}();}
+\DoxyCodeLine{172 }
+\DoxyCodeLine{176     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_main_app_ab61568c3a423abefc5f86fbf2ef38085}{clickActualizar}}();}
+\DoxyCodeLine{177 }
+\DoxyCodeLine{181     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_main_app_ae645022ec233ae79aa2db423540b3e19}{clickedEliminarGaleria}}();}
+\DoxyCodeLine{182 }
+\DoxyCodeLine{183 \};}
+\DoxyCodeLine{184 }
+\DoxyCodeLine{185 }
+\DoxyCodeLine{186 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//GALLERYTEC\_PROYECTO3\_MAINAPP\_H}}
+
+\end{DoxyCode}

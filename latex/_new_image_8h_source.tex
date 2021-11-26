@@ -1,0 +1,29 @@
+\hypertarget{_new_image_8h_source}{}\doxysection{New\+Image.\+h}
+\label{_new_image_8h_source}\index{ImageManagement/NewImage.h@{ImageManagement/NewImage.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef GALLERYTEC\_PROYECTO3\_NEWIMAGE\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define GALLERYTEC\_PROYECTO3\_NEWIMAGE\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}local/ReadWrite.h"{}}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}huffman/HuffmanCompresion.h"{}}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{keyword}{using namespace }std;}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{keyword}{struct }\mbox{\hyperlink{structpage}{page}};}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{keyword}{class }\mbox{\hyperlink{class_new_image}{NewImage}} \{}
+\DoxyCodeLine{12 \textcolor{keyword}{public}:}
+\DoxyCodeLine{13     \textcolor{keywordtype}{string} decompressImage(\textcolor{keywordtype}{string} image, \textcolor{keywordtype}{string} \textcolor{keywordtype}{id});}
+\DoxyCodeLine{14     \textcolor{keywordtype}{string} createDictionary(\textcolor{keywordtype}{string} path);}
+\DoxyCodeLine{15     \textcolor{keywordtype}{string} compressImage(\textcolor{keywordtype}{string} image, \textcolor{keywordtype}{string} \textcolor{keywordtype}{id});}
+\DoxyCodeLine{16 \textcolor{keyword}{private}:}
+\DoxyCodeLine{17     \textcolor{keywordtype}{string} frecuencyList(\textcolor{keywordtype}{string} path, \textcolor{keywordtype}{string} characters);}
+\DoxyCodeLine{18     \textcolor{keywordtype}{string} characterList(\textcolor{keywordtype}{string} path);}
+\DoxyCodeLine{19     \textcolor{keywordtype}{string} readImage(\textcolor{keywordtype}{string} path);}
+\DoxyCodeLine{20 \};}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//GALLERYTEC\_PROYECTO3\_NEWIMAGE\_H}}
+
+\end{DoxyCode}

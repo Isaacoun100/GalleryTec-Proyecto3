@@ -1,0 +1,49 @@
+\hypertarget{_metadata_database_handler_8h_source}{}\doxysection{Metadata\+Database\+Handler.\+h}
+\label{_metadata_database_handler_8h_source}\index{Database\_Management/MetadataDatabaseHandler.h@{Database\_Management/MetadataDatabaseHandler.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{//}}
+\DoxyCodeLine{2 \textcolor{comment}{// Created by michael on 26/11/21.}}
+\DoxyCodeLine{3 \textcolor{comment}{//}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <cstdint>}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include <bsoncxx/v\_noabi/bsoncxx/json.hpp>}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include <mongocxx/v\_noabi/mongocxx/client.hpp>}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include <mongocxx/v\_noabi/mongocxx/stdx.hpp>}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include <mongocxx/v\_noabi/mongocxx/uri.hpp>}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include <mongocxx/v\_noabi/mongocxx/instance.hpp>}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include <bsoncxx/v\_noabi/bsoncxx/builder/stream/helpers.hpp>}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include <bsoncxx/v\_noabi/bsoncxx/builder/stream/document.hpp>}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#include <bsoncxx/v\_noabi/bsoncxx/builder/stream/array.hpp>}}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{keyword}{using namespace }std;}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#ifndef GALLERYTEC\_PROYECTO3\_METADATADATABASEHANDLER\_H}}
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#define GALLERYTEC\_PROYECTO3\_METADATADATABASEHANDLER\_H}}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25 \textcolor{keyword}{class }\mbox{\hyperlink{class_metadata_database_handler}{MetadataDatabaseHandler}} \{}
+\DoxyCodeLine{26 \textcolor{keyword}{public}:}
+\DoxyCodeLine{27     mongocxx::instance inst\{\};}
+\DoxyCodeLine{28     \textcolor{keyword}{const} mongocxx::uri uri = mongocxx::uri\{\textcolor{stringliteral}{"{}mongodb+srv://michael-\/admin:webapp13@cluster0.7s2vm.mongodb.net/users\_DB?retryWrites=true\&w=majority"{}}\};}
+\DoxyCodeLine{29     mongocxx::client conn\{uri\};}
+\DoxyCodeLine{30     mongocxx::database db;}
+\DoxyCodeLine{31     mongocxx::collection coll;}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34     \mbox{\hyperlink{class_metadata_database_handler}{MetadataDatabaseHandler}}();}
+\DoxyCodeLine{35     \textcolor{keywordtype}{void} addNewMetadata(\textcolor{keywordtype}{string} newImage, \textcolor{keywordtype}{string} gallery);}
+\DoxyCodeLine{36     \textcolor{keywordtype}{void} deleteMetadata(\textcolor{keywordtype}{string} image);}
+\DoxyCodeLine{37     \textcolor{keywordtype}{void} modifyMetadata(\textcolor{keywordtype}{string} image,\textcolor{keywordtype}{string} infoAuthor, \textcolor{keywordtype}{string} infoYear, \textcolor{keywordtype}{string} infoSize, \textcolor{keywordtype}{string} infoDesc);}
+\DoxyCodeLine{38     vector<string> getMetadata(\textcolor{keywordtype}{string} image);}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40 \};}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//GALLERYTEC\_PROYECTO3\_METADATADATABASEHANDLER\_H}}
+
+\end{DoxyCode}
