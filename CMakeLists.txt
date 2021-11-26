@@ -61,8 +61,6 @@ add_executable(GalleryTec_Proyecto3
         GUI/MainApp.h
         Database_Management/UsersDatabaseHandler.cpp
         Database_Management/UsersDatabaseHandler.h
-        GUI/MetadataWindow.cpp
-        GUI/MetadataWindow.h
         Database_Management/MetadataDatabaseHandler.cpp
         Database_Management/MetadataDatabaseHandler.h)
 
