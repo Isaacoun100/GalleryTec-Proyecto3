@@ -116,8 +116,12 @@ vector<page> createVector(string dictionary){
 
 }
 
-string NewImage::compressImage(string image, string dictionary){
+string NewImage::compressImage(string image, string id){
     string final;
+    string dictionary= createDictionary(image);
+
+    ReadWrite readWrite;
+    readWrite.writeFile("local/dictionary.txt", readWrite.readFile("local/dictionary.txt")+"["+id+"$"+dictionary+"]\n" );
 
     vector<page> reference = createVector(dictionary);
 
@@ -132,13 +136,41 @@ string NewImage::compressImage(string image, string dictionary){
     return final;
 }
 
-string NewImage::decompressImage(string image, string dictionary) {
+string NewImage::decompressImage(string image, string id) {
+    ReadWrite readWrite;
 
     string final, buffer;
 
-    int k=0;
+    string dictionary, vault;
+    vault=readWrite.readFile("local/dictionary.txt");
+
+    for(int i=0; i<vault.size(); i++){
+        if(vault[i]=='['){
+            i++;
+            while(vault[i]!='$'){
+                buffer+=vault[i];
+                i++;
+            }
+        }
+
+        if(buffer==id){
+            i++;
+            while(vault[i]!=']'){
+                dictionary+=vault[i];
+                i++;
+            }
+
+            i=vault.size();
+        }
+        else{
+            buffer.clear();
+        }
+
+    }
 
     vector<page> reference = createVector(dictionary) ;
+
+    buffer.clear();
 
     for(int i=0; i<image.size();i++){
         buffer+=image[i];

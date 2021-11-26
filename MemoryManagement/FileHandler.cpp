@@ -143,7 +143,7 @@ void FileHandler::imageallocator(string image,string gallery,string ID) {
 
     int partitionindex=0;
 
-    string compressed = newImage.compressImage(image, newImage.createDictionary(image));
+    string compressed = newImage.compressImage(image, ID);
 
     //aquí se hace la partición
 
