@@ -137,6 +137,7 @@ string FileHandler::getimage(string ID) {
 
 
 void FileHandler::imageallocator(string image,string gallery,string ID) {
+    NewImage newImage;
     this->GIconnection(ID,gallery);
     this->ImageDirection(ID);
     vector<string> partitions;//Imagen partida en tres
@@ -145,7 +146,9 @@ void FileHandler::imageallocator(string image,string gallery,string ID) {
     partitions.push_back("0110");
 
     int partitionindex=0;
-    //10" 00" 101
+
+    string compressed = newImage.compressImage(image);
+
     //aquí se hace la partición
 
     int paridad=this->getbloqueparidad();//En que disco ira el bloque de paridad

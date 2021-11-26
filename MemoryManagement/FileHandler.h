@@ -7,6 +7,7 @@
 #include "vector"
 #include "iostream"
 #include "stdio.h"
+#include "ImageManagement/NewImage.h"
 
 using namespace std;
 
