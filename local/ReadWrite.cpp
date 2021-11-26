@@ -26,20 +26,6 @@ string ReadWrite::readFile(string path) {
     return result;
 }
 
-void ReadWrite::appendFile(string path, string result) {
-
-    string temporal=getPWD()+path;
-    ofstream stream(temporal);
-
-    if(stream.fail()){
-        cout << "Unable to locate file to write " << endl;
-    }
-
-    stream<<(result+ readFile(path)) ;
-    stream.close();
-
-}
-
 void ReadWrite::writeFile(string path, string result) {
 
     string temporal=getPWD()+path;
