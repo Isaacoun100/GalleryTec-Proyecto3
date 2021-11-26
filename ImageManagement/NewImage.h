@@ -2,14 +2,20 @@
 #define GALLERYTEC_PROYECTO3_NEWIMAGE_H
 
 #include "local/ReadWrite.h"
+#include "huffman/HuffmanCompresion.h"
 
 using namespace std;
 
+struct page;
+struct CompressedImage;
+
 class NewImage {
 public:
+    string createDictionary(string path);
+    string compressImage(string path);
+private:
     string frecuencyList(string path, string characters);
     string characterList(string path);
-private:
     string readImage(string path);
 };
 
