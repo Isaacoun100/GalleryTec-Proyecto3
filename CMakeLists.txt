@@ -50,7 +50,9 @@ add_executable(GalleryTec_Proyecto3
         GUI/SignInWindow.h
         GUI/MainApp.h
         Database_Management/UsersDatabaseHandler.cpp
-        Database_Management/UsersDatabaseHandler.h)
+        Database_Management/UsersDatabaseHandler.h
+        GUI/MetadataWindow.cpp
+        GUI/MetadataWindow.h)
 
 target_link_libraries(GalleryTec_Proyecto3 Qt5::Widgets)
 target_link_libraries(GalleryTec_Proyecto3 ${LIBMONGOCXX_LIBRARIES})

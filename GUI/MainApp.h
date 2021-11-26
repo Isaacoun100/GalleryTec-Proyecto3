@@ -8,6 +8,7 @@
 #include <QFileDialog>
 #include <QPixmap>
 #include <QString>
+#include "GUI/MetadataWindow.h"
 
 using namespace std;
 
@@ -37,6 +38,7 @@ public:
 
 private:
     QWidget windowApp;
+    MetadataWindow *mtw;
     QPushButton *anteriorButton;
     QPushButton *verMetadataButton;
     QPushButton *siguienteButton;
@@ -81,6 +83,8 @@ public slots:
      * @brief este metodo se llama cuando se le da click "Eliminar Imagen" y se encarga de borrar la imagen de la pantalla.
      */
     void clickedEliminarImagen();
+
+    void clickedAgregarImagen();
 
 };
 

@@ -40,7 +40,7 @@ void MainApp::setUpBotones() {
     eliminarImagenButton->show();
 
 
-    //QObject::connect(anteriorButton,SIGNAL(clicked()),this,SLOT(clickedVerMetadata()));
+    QObject::connect(verMetadataButton,SIGNAL(clicked()),this,SLOT(clickedVerMetadata()));
 
 }
 
@@ -68,10 +68,15 @@ void MainApp::setUpWidgets() {
 }
 
 void MainApp::clickedVerMetadata() {
+    mtw = new MetadataWindow();
 
 }
 
 void MainApp::clickedEliminarImagen() {
+
+}
+
+void MainApp::clickedAgregarImagen() {
 
 }
 
