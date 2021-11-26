@@ -217,7 +217,7 @@ void MainApp::clickedAgregarImagen() {
     string imageName = pathTranslate(fileChooser.toStdString());
     ID.append(imageName);
     ReadWrite readWrite;
-    imageText = readWrite.readFile(fileChooser.toStdString());
+    imageText = readWrite.readFile(pathTransc(fileChooser.toStdString()));
     fileHandler.imageallocator(imageText, currentGallery, ID);
     metadataDatabaseHandler.addNewMetadata(ID, currentGallery);
 
@@ -336,6 +336,35 @@ void MainApp::clickedEliminarGaleria() {
         }
     }
 
+
+}
+
+string MainApp::pathTransc(string path) {
+    vector<string> v;
+    bool foundpath=false;
+    stringstream ss(path);
+    string absolpath;
+    while (ss.good()) {
+        string substr;
+        getline(ss, substr, '/');
+        v.push_back(substr);
+    }
+
+    for(int i=0;i<v.size();i++){
+        if(foundpath){
+            if(i==v.size()-1){
+                absolpath.append(v[i]);
+            }else{
+                absolpath.append(v[i]);
+                absolpath.append("/");
+            }
+        }else if(v[i]=="GalleryTec-Proyecto3"){
+            foundpath=true;
+        }else{
+            continue;
+        }
+    }
+    return absolpath;
 
 }
 

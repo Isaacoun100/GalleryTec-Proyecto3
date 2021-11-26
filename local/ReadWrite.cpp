@@ -10,8 +10,7 @@ string ReadWrite::getPWD(){
 
 string ReadWrite::readFile(string path) {
     string text, result;
-    //string temporal=getPWD()+path;
-    string temporal=path;
+    string temporal=getPWD()+path;
 
     ifstream stream(temporal);
 

@@ -128,6 +128,10 @@ private:
      */
     string pathTranslate(string path);
 
+    string pathTransc(string path);
+
+
+
 public slots:
 
     /**
