@@ -1,6 +1,18 @@
 #include "HuffmanCompresion.h"
 #define MAX_TREE_HT 100
 
+struct page{
+    char data;
+    string compressed;
+};
+
+struct CompressedImage{
+
+    string compressedBinary;
+    vector<page> dictionary;
+
+};
+
 struct MinHeapNode {
 
     // One of the input characters
@@ -144,9 +156,7 @@ struct MinHeap* HuffmanCompresion::createAndBuildMinHeap(char data[], int freq[]
     return minHeap;
 }
 
-struct MinHeapNode* HuffmanCompresion::buildHuffmanTree(char data[], int freq[], int size)
-
-{
+struct MinHeapNode* HuffmanCompresion::buildHuffmanTree(char data[], int freq[], int size){
     struct MinHeapNode *left, *right, *top;
 
     // Step 1: Create a min heap of capacity
@@ -209,9 +219,7 @@ void HuffmanCompresion::printCodes(struct MinHeapNode* root, int arr[], int top)
     }
 }
 
-void HuffmanCompresion::HuffmanCodes(char data[], int freq[], int size)
-
-{
+string HuffmanCompresion::HuffmanCodes(char data[], int freq[], int size){
     // Construct huffman Tree
     struct MinHeapNode* root= buildHuffmanTree(data, freq, size);
 
@@ -220,4 +228,29 @@ void HuffmanCompresion::HuffmanCodes(char data[], int freq[], int size)
     int arr[MAX_TREE_HT], top = 0;
 
     printCodes(root, arr, top);
+
+    return createDictionary(root,"","");
+
+}
+
+string HuffmanCompresion::createDictionary(struct MinHeapNode* root, string result, string tmp){
+
+    if(isLeaf(root)){
+        char e = root->data;
+
+        string final;
+        final+=e;
+        final+=":"+tmp+"/";
+        return final;
+    }
+
+    if(root->left){
+        result+=createDictionary(root->left, "", tmp+"0" );
+    }
+
+    if(root->right){
+        result+=createDictionary(root->right, "", tmp+"1" );
+    }
+
+    return result;
 }
