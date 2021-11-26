@@ -139,20 +139,44 @@ public slots:
      */
     void clickedEliminarImagen();
 
+    /**
+     * @brief este metodo se encarga de agregar una galeria al usuario que la hizo.
+     */
     void clickedAgregarGaleria();
 
+    /**
+     * @brief este metodo se encarga de devolverse a la imagen anterior mediante un boton.
+     */
     void clickedAnterior();
 
+    /**
+     * @brief este metodo se encarga de mostrar la siguiente imagen mediante un boton.
+     */
     void clickedSiguiente();
 
+    /**
+     * @brief este metodo se encarga de agregar una imagen a la galeria.
+     */
     void clickedAgregarImagen();
 
+    /**
+     * @brief este metodo se encarga de agregar dichas imagenes a una galeria.
+     */
     void clickedConfirmarGaleria();
 
+    /**
+     * @brief este metodo se encarga de modificar la metada.
+     */
     void clickedModificarMetadata();
 
+    /**
+     * @brief este metodo se actualizar los cambios en la metadata.
+     */
     void clickActualizar();
 
+    /**
+     * @brief este metodo se encarga de eliminar la galeria.
+     */
     void clickedEliminarGaleria();
 
 };

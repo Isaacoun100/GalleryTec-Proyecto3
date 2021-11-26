@@ -16,6 +16,13 @@ using namespace std;
 #ifndef GALLERYTEC_PROYECTO3_SIGNINWINDOW_H
 #define GALLERYTEC_PROYECTO3_SIGNINWINDOW_H
 
+/**
+ * @file SignInWindow.h
+ * @authors Max Garro Mora
+ * @brief Clase que contiene toda la ventana de registro.
+ * @version 2.0
+ * @date 22/11/2021
+ */
 
 class SignInWindow:public QWindow {
     Q_OBJECT
