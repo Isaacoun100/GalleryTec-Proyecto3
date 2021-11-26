@@ -7,12 +7,12 @@
 using namespace std;
 
 struct page;
-struct CompressedImage;
 
 class NewImage {
 public:
+    string decompressImage(string image, string dictionary);
     string createDictionary(string path);
-    string compressImage(string path);
+    string compressImage(string path, string dictionary);
 private:
     string frecuencyList(string path, string characters);
     string characterList(string path);
