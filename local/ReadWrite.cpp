@@ -25,7 +25,6 @@ string ReadWrite::readFile(string path) {
     stream.close();
     return result;
 }
-
 void ReadWrite::writeFile(string path, string result) {
 
     string temporal=getPWD()+path;
