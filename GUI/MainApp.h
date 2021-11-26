@@ -9,8 +9,8 @@
 #include <QPixmap>
 #include <QString>
 #include <vector>
-#include "GUI/MetadataWindow.h"
 #include "MemoryManagement/FileHandler.h"
+#include "local/ReadWrite.h"
 
 using namespace std;
 
@@ -40,7 +40,8 @@ public:
 
 private:
     QWidget windowApp;
-    MetadataWindow *mtw;
+    QMainWindow * metadataWindow;
+    QMainWindow * ModificarMetada;
     FileHandler fileHandler;
     QPushButton *anteriorButton;
     QPushButton *verMetadataButton;
@@ -48,9 +49,31 @@ private:
     QPushButton *eliminarImagenButton;
     QPushButton *agregarGaleriaButton;
     QPushButton *agregarImagenButton;
+    QPushButton *confirmarGaleria;
     const QSize BUTTON_SIZE = QSize(50, 50);
 
-    QLabel *nombreGaleria;
+    QPushButton *modificarMetadataButton;
+    QPushButton *actualizarinfoButton;
+    const QSize BUTTON_SIZE2 = QSize(90, 50);
+    QLabel *imagenData;
+    QLabel *autorData;
+    QLabel *fechaData;
+    QLabel *tamanoData;
+    QLabel *descripcionData;
+
+    QLabel *imagenData2;
+    QLabel *autorData2;
+    QLabel *fechaData2;
+    QLabel *tamanoData2;
+    QLabel *descripcionData2;
+
+    QLineEdit *imagenEntry;
+    QLineEdit *autorEntry;
+    QLineEdit *fechaEntry;
+    QLineEdit *tamanoEntry;
+    QLineEdit *descripcionEntry;
+
+    QString nombreGaleria;
     QLabel *nombreImagen;
     QLabel *labelImage;
 
@@ -62,6 +85,11 @@ private:
 
     string username;
     string password;
+    vector<string> currentGalleries;
+    string currentGallery;
+    vector<string> currentImages;
+    int imagePos = 0;
+
 
     /**
      * @brief metodo encargado de crear los botones y mostrarlos en pantalla.
@@ -85,6 +113,8 @@ private:
 
     void mostrarImagen();
 
+    string pathTranslate(string path);
+
 public slots:
 
     /**
@@ -104,6 +134,12 @@ public slots:
     void clickedSiguiente();
 
     void clickedAgregarImagen();
+
+    void clickedConfirmarGaleria();
+
+    void clickedModificarMetadata();
+
+    void clickActualizar();
 
 };
 
