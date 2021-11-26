@@ -30,6 +30,7 @@ class MainApp:public QWindow {
     Q_OBJECT
 public:
     MetadataDatabaseHandler metadataDatabaseHandler;
+
     /**
      * @brief constructor de la clase MainApp.
      */

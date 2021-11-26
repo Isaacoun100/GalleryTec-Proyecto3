@@ -103,10 +103,13 @@ void MainApp::setUpCombobox() {
 }
 
 void MainApp::mostrarImagen() {
-    //QImage image;
-    //image.load(fileHandler.getimage(currentImage));
-    //image = image.scaled(200, 200, Qt::KeepAspectRatio, Qt::FastTransformation);
-    //labelImage->setPixmap(QPixmap::fromImage(image));
+    QImage image;
+    string imageText = fileHandler.getimage(currentImage);
+    ReadWrite readWrite;
+    readWrite.writeFile("local/temporal.ppm", imageText);
+    image.load(imageText);
+    image = image.scaled(200, 200, Qt::KeepAspectRatio, Qt::FastTransformation);
+    labelImage->setPixmap(QPixmap::fromImage(image));
 
 }
 
