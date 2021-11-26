@@ -1,0 +1,362 @@
+\hypertarget{class_users_database_handler}{}\doxysection{Users\+Database\+Handler Class Reference}
+\label{class_users_database_handler}\index{UsersDatabaseHandler@{UsersDatabaseHandler}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_users_database_handler_ab46968ff0d738d33c2849225ba289244}\label{class_users_database_handler_ab46968ff0d738d33c2849225ba289244}} 
+{\bfseries Users\+Database\+Handler} ()
+\begin{DoxyCompactList}\small\item\em constructor de la clase, que inicializa la base de datos y las colecciones a las que se deben accesar \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_users_database_handler_a07f314400eaa5ec11d6810f3286d0eb8}{insert\+User\+To\+DB}} (string user\+Name, string user\+Password)
+\begin{DoxyCompactList}\small\item\em inserta un usuario y contraseña a la base \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_users_database_handler_abd281e2072bc567e5010b8fb49e8b4f3}{modify\+User\+Data}} (string user\+Name, string new\+User\+Name)
+\begin{DoxyCompactList}\small\item\em modifica el usuario por uno nuevo \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_users_database_handler_a7220109ac8e21ae2b16891732fa83127}{delete\+User\+Data}} (string username)
+\begin{DoxyCompactList}\small\item\em elimina datos de un usuario en especifico \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_users_database_handler_a831be4bfe430201cc8c0d3c484cd686d}{get\+User\+Data\+From\+DB}} (string username)
+\begin{DoxyCompactList}\small\item\em obtiene datos del usuario \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_users_database_handler_a3598c4afbc1c252a69e511f710e4ba03}{add\+New\+Gallery}} (string username, string new\+Gallery)
+\begin{DoxyCompactList}\small\item\em almacena una nueva galeria en cierto usuario \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_users_database_handler_a5515a310c55d2a2645a846ecdc965684}{add\+New\+Image}} (string username, string gallery, string new\+Image)
+\begin{DoxyCompactList}\small\item\em @bried almacena una nueva imagen en cierta galeria y en cierto usuario \end{DoxyCompactList}\item 
+vector$<$ string $>$ \mbox{\hyperlink{class_users_database_handler_a7d184abf0fe570602e64a1b9db71a7a0}{get\+Username\+And\+Password}} (string username)
+\begin{DoxyCompactList}\small\item\em obtiene el usuario y contraseña de un usuario para comprobar si existe y si puede hacer log in \end{DoxyCompactList}\item 
+vector$<$ string $>$ \mbox{\hyperlink{class_users_database_handler_acf053ee39f4209bb9804034672e2614e}{get\+Galleries}} (string username)
+\begin{DoxyCompactList}\small\item\em obtiene las galerias de un usuario \end{DoxyCompactList}\item 
+vector$<$ string $>$ \mbox{\hyperlink{class_users_database_handler_a9ceec4326b5bdefa1d32a616676e2cc9}{get\+Images}} (string username, string gallery)
+\begin{DoxyCompactList}\small\item\em obtiene las imagenes contenidas en una galeria \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_users_database_handler_acbdd56754eff5c3dae93d60f5ce2335c}{get\+Raw\+Images}} (string username, string gallery)
+\begin{DoxyCompactList}\small\item\em obtiene string con las imagenes de un usuario en una respectiva galeria \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_users_database_handler_a1a14117937995bcee57c82b20403e908}{delete\+Gallery}} (string username, string gallery)
+\begin{DoxyCompactList}\small\item\em elimina una galeria de la base de datos \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_users_database_handler_a756a7120610bd5da134e8c5ea605bb18}{delete\+Image}} (string username, string gallery, string image)
+\begin{DoxyCompactList}\small\item\em elimina una imagen de la base de datos \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_users_database_handler_a0a76f4ecbd4125cfaef29e63ab5b68c2}{insert\+Image\+To\+Collection}} (string new\+Image, string gallery)
+\begin{DoxyCompactList}\small\item\em inserta una imagen a la coleccion de imagenes creada en la base de datos \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_users_database_handler_a44381fb336459fbc479792bd140c1c9b}{insert\+Images\+Modified}} (string username, string images, string gallery)
+\begin{DoxyCompactList}\small\item\em modifica las imagenes cuando se elimina una \end{DoxyCompactList}\item 
+vector$<$ string $>$ \mbox{\hyperlink{class_users_database_handler_acba47c22b6b37cd13bbe4579fd2a2d6f}{get\+Metadata}} (string image)
+\begin{DoxyCompactList}\small\item\em obtiene la metadata de una imagen \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_users_database_handler_aad0d5c389e60ecb4d37f6b4636231081}{modify\+Metadata}} (string image, string info\+Author, string info\+Year, string info\+Size, string info\+Desc)
+\begin{DoxyCompactList}\small\item\em permite modificar la metadata de una imagen \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_users_database_handler_adcd593b89cc38954f27ccd51dafd091b}\label{class_users_database_handler_adcd593b89cc38954f27ccd51dafd091b}} 
+void {\bfseries empty\+Gallery\+Set} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_users_database_handler_afe137e3552f4289a8f5ebe8ca33dfc6d}\label{class_users_database_handler_afe137e3552f4289a8f5ebe8ca33dfc6d}} 
+mongocxx\+::instance {\bfseries inst} \{\}
+\item 
+\mbox{\Hypertarget{class_users_database_handler_a7b643543ff9da2c5150227545810543e}\label{class_users_database_handler_a7b643543ff9da2c5150227545810543e}} 
+const mongocxx\+::uri {\bfseries uri} = mongocxx\+::uri\{\char`\"{}mongodb+srv\+://michael-\/admin\+:webapp13@cluster0.\+7s2vm.\+mongodb.\+net/users\+\_\+\+DB?retry\+Writes=true\&w=majority\char`\"{}\}
+\item 
+\mbox{\Hypertarget{class_users_database_handler_a36381487925f3dd409e1cedd44ab08d8}\label{class_users_database_handler_a36381487925f3dd409e1cedd44ab08d8}} 
+mongocxx\+::client {\bfseries conn} \{uri\}
+\item 
+\mbox{\Hypertarget{class_users_database_handler_ad202a3914f079f207a94ca01421db9d6}\label{class_users_database_handler_ad202a3914f079f207a94ca01421db9d6}} 
+mongocxx\+::database {\bfseries db}
+\item 
+\mbox{\Hypertarget{class_users_database_handler_a512c8c2e2e2442768aced7a7510bdeb1}\label{class_users_database_handler_a512c8c2e2e2442768aced7a7510bdeb1}} 
+mongocxx\+::collection {\bfseries coll}
+\item 
+\mbox{\Hypertarget{class_users_database_handler_a3db7f975407958e31dc4194adfca0151}\label{class_users_database_handler_a3db7f975407958e31dc4194adfca0151}} 
+mongocxx\+::collection {\bfseries coll\+Images}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_users_database_handler_a3598c4afbc1c252a69e511f710e4ba03}\label{class_users_database_handler_a3598c4afbc1c252a69e511f710e4ba03}} 
+\index{UsersDatabaseHandler@{UsersDatabaseHandler}!addNewGallery@{addNewGallery}}
+\index{addNewGallery@{addNewGallery}!UsersDatabaseHandler@{UsersDatabaseHandler}}
+\doxysubsubsection{\texorpdfstring{addNewGallery()}{addNewGallery()}}
+{\footnotesize\ttfamily void Users\+Database\+Handler\+::add\+New\+Gallery (\begin{DoxyParamCaption}\item[{string}]{username,  }\item[{string}]{new\+Gallery }\end{DoxyParamCaption})}
+
+
+
+almacena una nueva galeria en cierto usuario 
+
+
+\begin{DoxyParams}{Parameters}
+{\em username} & \+: usuario que crea la galeria nueva \\
+\hline
+{\em new\+Gallery} & \+: nombre de la galeria nueva \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_users_database_handler_a5515a310c55d2a2645a846ecdc965684}\label{class_users_database_handler_a5515a310c55d2a2645a846ecdc965684}} 
+\index{UsersDatabaseHandler@{UsersDatabaseHandler}!addNewImage@{addNewImage}}
+\index{addNewImage@{addNewImage}!UsersDatabaseHandler@{UsersDatabaseHandler}}
+\doxysubsubsection{\texorpdfstring{addNewImage()}{addNewImage()}}
+{\footnotesize\ttfamily void Users\+Database\+Handler\+::add\+New\+Image (\begin{DoxyParamCaption}\item[{string}]{username,  }\item[{string}]{gallery,  }\item[{string}]{new\+Image }\end{DoxyParamCaption})}
+
+
+
+@bried almacena una nueva imagen en cierta galeria y en cierto usuario 
+
+
+\begin{DoxyParams}{Parameters}
+{\em username} & \+: usuario que guarda la nueva imagen \\
+\hline
+{\em gallery} & \+: galeria en el que se va a almacenar la nueva imagen \\
+\hline
+{\em new\+Image} & \+: nombre de la imagen o ID a guardar \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_users_database_handler_a1a14117937995bcee57c82b20403e908}\label{class_users_database_handler_a1a14117937995bcee57c82b20403e908}} 
+\index{UsersDatabaseHandler@{UsersDatabaseHandler}!deleteGallery@{deleteGallery}}
+\index{deleteGallery@{deleteGallery}!UsersDatabaseHandler@{UsersDatabaseHandler}}
+\doxysubsubsection{\texorpdfstring{deleteGallery()}{deleteGallery()}}
+{\footnotesize\ttfamily void Users\+Database\+Handler\+::delete\+Gallery (\begin{DoxyParamCaption}\item[{string}]{username,  }\item[{string}]{gallery }\end{DoxyParamCaption})}
+
+
+
+elimina una galeria de la base de datos 
+
+
+\begin{DoxyParams}{Parameters}
+{\em username} & \+: usuario a buscar para eliminar la galeria \\
+\hline
+{\em gallery} & \+: galeria a eliminar \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_users_database_handler_a756a7120610bd5da134e8c5ea605bb18}\label{class_users_database_handler_a756a7120610bd5da134e8c5ea605bb18}} 
+\index{UsersDatabaseHandler@{UsersDatabaseHandler}!deleteImage@{deleteImage}}
+\index{deleteImage@{deleteImage}!UsersDatabaseHandler@{UsersDatabaseHandler}}
+\doxysubsubsection{\texorpdfstring{deleteImage()}{deleteImage()}}
+{\footnotesize\ttfamily void Users\+Database\+Handler\+::delete\+Image (\begin{DoxyParamCaption}\item[{string}]{username,  }\item[{string}]{gallery,  }\item[{string}]{image }\end{DoxyParamCaption})}
+
+
+
+elimina una imagen de la base de datos 
+
+
+\begin{DoxyParams}{Parameters}
+{\em username} & \+: usuario a buscar \\
+\hline
+{\em gallery} & \+: galeria a buscar \\
+\hline
+{\em image} & \+: imagen que se elimina \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_users_database_handler_a7220109ac8e21ae2b16891732fa83127}\label{class_users_database_handler_a7220109ac8e21ae2b16891732fa83127}} 
+\index{UsersDatabaseHandler@{UsersDatabaseHandler}!deleteUserData@{deleteUserData}}
+\index{deleteUserData@{deleteUserData}!UsersDatabaseHandler@{UsersDatabaseHandler}}
+\doxysubsubsection{\texorpdfstring{deleteUserData()}{deleteUserData()}}
+{\footnotesize\ttfamily void Users\+Database\+Handler\+::delete\+User\+Data (\begin{DoxyParamCaption}\item[{string}]{username }\end{DoxyParamCaption})}
+
+
+
+elimina datos de un usuario en especifico 
+
+
+\begin{DoxyParams}{Parameters}
+{\em username} & \+: usuario a eliminar \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_users_database_handler_acf053ee39f4209bb9804034672e2614e}\label{class_users_database_handler_acf053ee39f4209bb9804034672e2614e}} 
+\index{UsersDatabaseHandler@{UsersDatabaseHandler}!getGalleries@{getGalleries}}
+\index{getGalleries@{getGalleries}!UsersDatabaseHandler@{UsersDatabaseHandler}}
+\doxysubsubsection{\texorpdfstring{getGalleries()}{getGalleries()}}
+{\footnotesize\ttfamily vector$<$ string $>$ Users\+Database\+Handler\+::get\+Galleries (\begin{DoxyParamCaption}\item[{string}]{username }\end{DoxyParamCaption})}
+
+
+
+obtiene las galerias de un usuario 
+
+
+\begin{DoxyParams}{Parameters}
+{\em username} & \+: usuario con las galerias \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+vector con las galerias que ha creado 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_users_database_handler_a9ceec4326b5bdefa1d32a616676e2cc9}\label{class_users_database_handler_a9ceec4326b5bdefa1d32a616676e2cc9}} 
+\index{UsersDatabaseHandler@{UsersDatabaseHandler}!getImages@{getImages}}
+\index{getImages@{getImages}!UsersDatabaseHandler@{UsersDatabaseHandler}}
+\doxysubsubsection{\texorpdfstring{getImages()}{getImages()}}
+{\footnotesize\ttfamily vector$<$ string $>$ Users\+Database\+Handler\+::get\+Images (\begin{DoxyParamCaption}\item[{string}]{username,  }\item[{string}]{gallery }\end{DoxyParamCaption})}
+
+
+
+obtiene las imagenes contenidas en una galeria 
+
+
+\begin{DoxyParams}{Parameters}
+{\em username} & \+: usuario al que le pertenece la galeria \\
+\hline
+{\em gallery} & \+: galeria a buscar para obtener las imagenes \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+vector con las imagenes de la galeria buscada 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_users_database_handler_acba47c22b6b37cd13bbe4579fd2a2d6f}\label{class_users_database_handler_acba47c22b6b37cd13bbe4579fd2a2d6f}} 
+\index{UsersDatabaseHandler@{UsersDatabaseHandler}!getMetadata@{getMetadata}}
+\index{getMetadata@{getMetadata}!UsersDatabaseHandler@{UsersDatabaseHandler}}
+\doxysubsubsection{\texorpdfstring{getMetadata()}{getMetadata()}}
+{\footnotesize\ttfamily vector$<$ string $>$ Users\+Database\+Handler\+::get\+Metadata (\begin{DoxyParamCaption}\item[{string}]{image }\end{DoxyParamCaption})}
+
+
+
+obtiene la metadata de una imagen 
+
+
+\begin{DoxyParams}{Parameters}
+{\em image} & \+: imagen a buscar en la coleccion images \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+vector con la metadata de la imagen buscada 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_users_database_handler_acbdd56754eff5c3dae93d60f5ce2335c}\label{class_users_database_handler_acbdd56754eff5c3dae93d60f5ce2335c}} 
+\index{UsersDatabaseHandler@{UsersDatabaseHandler}!getRawImages@{getRawImages}}
+\index{getRawImages@{getRawImages}!UsersDatabaseHandler@{UsersDatabaseHandler}}
+\doxysubsubsection{\texorpdfstring{getRawImages()}{getRawImages()}}
+{\footnotesize\ttfamily string Users\+Database\+Handler\+::get\+Raw\+Images (\begin{DoxyParamCaption}\item[{string}]{username,  }\item[{string}]{gallery }\end{DoxyParamCaption})}
+
+
+
+obtiene string con las imagenes de un usuario en una respectiva galeria 
+
+
+\begin{DoxyParams}{Parameters}
+{\em username} & \+: usuario al que buscar \\
+\hline
+{\em gallery} & \+: galeria al que buscar \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string con las imagenes o IDs de imagenes 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_users_database_handler_a831be4bfe430201cc8c0d3c484cd686d}\label{class_users_database_handler_a831be4bfe430201cc8c0d3c484cd686d}} 
+\index{UsersDatabaseHandler@{UsersDatabaseHandler}!getUserDataFromDB@{getUserDataFromDB}}
+\index{getUserDataFromDB@{getUserDataFromDB}!UsersDatabaseHandler@{UsersDatabaseHandler}}
+\doxysubsubsection{\texorpdfstring{getUserDataFromDB()}{getUserDataFromDB()}}
+{\footnotesize\ttfamily void Users\+Database\+Handler\+::get\+User\+Data\+From\+DB (\begin{DoxyParamCaption}\item[{string}]{username }\end{DoxyParamCaption})}
+
+
+
+obtiene datos del usuario 
+
+
+\begin{DoxyParams}{Parameters}
+{\em username} & \+: usuario al que se le obtienen los datos \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_users_database_handler_a7d184abf0fe570602e64a1b9db71a7a0}\label{class_users_database_handler_a7d184abf0fe570602e64a1b9db71a7a0}} 
+\index{UsersDatabaseHandler@{UsersDatabaseHandler}!getUsernameAndPassword@{getUsernameAndPassword}}
+\index{getUsernameAndPassword@{getUsernameAndPassword}!UsersDatabaseHandler@{UsersDatabaseHandler}}
+\doxysubsubsection{\texorpdfstring{getUsernameAndPassword()}{getUsernameAndPassword()}}
+{\footnotesize\ttfamily vector$<$ string $>$ Users\+Database\+Handler\+::get\+Username\+And\+Password (\begin{DoxyParamCaption}\item[{string}]{username }\end{DoxyParamCaption})}
+
+
+
+obtiene el usuario y contraseña de un usuario para comprobar si existe y si puede hacer log in 
+
+
+\begin{DoxyParams}{Parameters}
+{\em username} & \+: usuario a buscar \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+vector con los datos esperados, en el indice 0 se encuentra el usuario, en indice 1 se encuentra la contraseña 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_users_database_handler_a44381fb336459fbc479792bd140c1c9b}\label{class_users_database_handler_a44381fb336459fbc479792bd140c1c9b}} 
+\index{UsersDatabaseHandler@{UsersDatabaseHandler}!insertImagesModified@{insertImagesModified}}
+\index{insertImagesModified@{insertImagesModified}!UsersDatabaseHandler@{UsersDatabaseHandler}}
+\doxysubsubsection{\texorpdfstring{insertImagesModified()}{insertImagesModified()}}
+{\footnotesize\ttfamily void Users\+Database\+Handler\+::insert\+Images\+Modified (\begin{DoxyParamCaption}\item[{string}]{username,  }\item[{string}]{images,  }\item[{string}]{gallery }\end{DoxyParamCaption})}
+
+
+
+modifica las imagenes cuando se elimina una 
+
+
+\begin{DoxyParams}{Parameters}
+{\em username} & \+: usuario a buscar \\
+\hline
+{\em images} & \+: string de imagenes \\
+\hline
+{\em gallery} & \+: galeria a buscar \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_users_database_handler_a0a76f4ecbd4125cfaef29e63ab5b68c2}\label{class_users_database_handler_a0a76f4ecbd4125cfaef29e63ab5b68c2}} 
+\index{UsersDatabaseHandler@{UsersDatabaseHandler}!insertImageToCollection@{insertImageToCollection}}
+\index{insertImageToCollection@{insertImageToCollection}!UsersDatabaseHandler@{UsersDatabaseHandler}}
+\doxysubsubsection{\texorpdfstring{insertImageToCollection()}{insertImageToCollection()}}
+{\footnotesize\ttfamily void Users\+Database\+Handler\+::insert\+Image\+To\+Collection (\begin{DoxyParamCaption}\item[{string}]{new\+Image,  }\item[{string}]{gallery }\end{DoxyParamCaption})}
+
+
+
+inserta una imagen a la coleccion de imagenes creada en la base de datos 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Image} & \+: imagen que se inserta \\
+\hline
+{\em gallery} & \+: galeria para ubicar a la imagen \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_users_database_handler_a07f314400eaa5ec11d6810f3286d0eb8}\label{class_users_database_handler_a07f314400eaa5ec11d6810f3286d0eb8}} 
+\index{UsersDatabaseHandler@{UsersDatabaseHandler}!insertUserToDB@{insertUserToDB}}
+\index{insertUserToDB@{insertUserToDB}!UsersDatabaseHandler@{UsersDatabaseHandler}}
+\doxysubsubsection{\texorpdfstring{insertUserToDB()}{insertUserToDB()}}
+{\footnotesize\ttfamily void Users\+Database\+Handler\+::insert\+User\+To\+DB (\begin{DoxyParamCaption}\item[{string}]{user\+Name,  }\item[{string}]{user\+Password }\end{DoxyParamCaption})}
+
+
+
+inserta un usuario y contraseña a la base 
+
+
+\begin{DoxyParams}{Parameters}
+{\em user\+Name} & \+: nombre del usuario \\
+\hline
+{\em user\+Password} & \+: contraseña del usuario \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_users_database_handler_aad0d5c389e60ecb4d37f6b4636231081}\label{class_users_database_handler_aad0d5c389e60ecb4d37f6b4636231081}} 
+\index{UsersDatabaseHandler@{UsersDatabaseHandler}!modifyMetadata@{modifyMetadata}}
+\index{modifyMetadata@{modifyMetadata}!UsersDatabaseHandler@{UsersDatabaseHandler}}
+\doxysubsubsection{\texorpdfstring{modifyMetadata()}{modifyMetadata()}}
+{\footnotesize\ttfamily void Users\+Database\+Handler\+::modify\+Metadata (\begin{DoxyParamCaption}\item[{string}]{image,  }\item[{string}]{info\+Author,  }\item[{string}]{info\+Year,  }\item[{string}]{info\+Size,  }\item[{string}]{info\+Desc }\end{DoxyParamCaption})}
+
+
+
+permite modificar la metadata de una imagen 
+
+
+\begin{DoxyParams}{Parameters}
+{\em image} & \+: imagen a modificar la metadata \\
+\hline
+{\em info\+Author} & \+: autor de la imagen \\
+\hline
+{\em info\+Year} & \+: año de creacion de la imagen \\
+\hline
+{\em info\+Size} & \+: tamaño de la imagen \\
+\hline
+{\em info\+Desc} & \+: descripcion de la imagen \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_users_database_handler_abd281e2072bc567e5010b8fb49e8b4f3}\label{class_users_database_handler_abd281e2072bc567e5010b8fb49e8b4f3}} 
+\index{UsersDatabaseHandler@{UsersDatabaseHandler}!modifyUserData@{modifyUserData}}
+\index{modifyUserData@{modifyUserData}!UsersDatabaseHandler@{UsersDatabaseHandler}}
+\doxysubsubsection{\texorpdfstring{modifyUserData()}{modifyUserData()}}
+{\footnotesize\ttfamily void Users\+Database\+Handler\+::modify\+User\+Data (\begin{DoxyParamCaption}\item[{string}]{user\+Name,  }\item[{string}]{new\+User\+Name }\end{DoxyParamCaption})}
+
+
+
+modifica el usuario por uno nuevo 
+
+
+\begin{DoxyParams}{Parameters}
+{\em user\+Name} & \+: usuario a modificar \\
+\hline
+{\em new\+User\+Name} & \+: usuario por el que se cambia \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Database\+\_\+\+Management/Users\+Database\+Handler.\+h\item 
+Database\+\_\+\+Management/Users\+Database\+Handler.\+cpp\end{DoxyCompactItemize}

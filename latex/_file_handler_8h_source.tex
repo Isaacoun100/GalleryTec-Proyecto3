@@ -1,0 +1,94 @@
+\hypertarget{_file_handler_8h_source}{}\doxysection{File\+Handler.\+h}
+\label{_file_handler_8h_source}\index{MemoryManagement/FileHandler.h@{MemoryManagement/FileHandler.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef GALLERYTEC\_PROYECTO3\_FILEHANDLER\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define GALLERYTEC\_PROYECTO3\_FILEHANDLER\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}string"{}}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}fstream"{}}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}vector"{}}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include "{}iostream"{}}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include "{}stdio.h"{}}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include "{}ImageManagement/NewImage.h"{}}}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{12 \textcolor{keyword}{using namespace }std;}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14 \textcolor{keyword}{class }\mbox{\hyperlink{class_file_handler}{FileHandler}}\{}
+\DoxyCodeLine{15 \textcolor{keyword}{private}:}
+\DoxyCodeLine{16 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/Variables-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{17     \textcolor{keywordtype}{int} Discoparidad=5;}
+\DoxyCodeLine{18     \textcolor{keywordtype}{int} memoryblock=1;}
+\DoxyCodeLine{19 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/Funciones Recuperación archivos-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{25 \textcolor{comment}{}    \textcolor{keywordtype}{int} getbloqueparidad();}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{33     \textcolor{keywordtype}{string} calculateXOR(\textcolor{keywordtype}{string} Part1, \textcolor{keywordtype}{string} Part2);}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{41     \textcolor{keywordtype}{string} XORHelper(\textcolor{keywordtype}{string} ID, \textcolor{keywordtype}{int} missingdisc);}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{50     \textcolor{keywordtype}{string} calculoparidad(\textcolor{keywordtype}{string} one, \textcolor{keywordtype}{string} two, \textcolor{keywordtype}{string} three);}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{52     \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/Funciones para lectura y escritura en los discos-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{60 \textcolor{comment}{}    \textcolor{keywordtype}{string} fileReader(\textcolor{keywordtype}{string} ID, \textcolor{keywordtype}{int} Parity);}
+\DoxyCodeLine{61 }
+\DoxyCodeLine{68     \textcolor{keywordtype}{string} pathbuilder(\textcolor{keywordtype}{string} ID, \textcolor{keywordtype}{int} disc);}
+\DoxyCodeLine{69 }
+\DoxyCodeLine{70 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/Funciones principales añadir componentes-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{71 }
+\DoxyCodeLine{77     \textcolor{keywordtype}{void} addusergalley(\textcolor{keywordtype}{string} user, \textcolor{keywordtype}{string} gallery);}
+\DoxyCodeLine{78 }
+\DoxyCodeLine{84     \textcolor{keywordtype}{void} GIconnection(\textcolor{keywordtype}{string} ID,\textcolor{keywordtype}{string} Gallery);}
+\DoxyCodeLine{85 }
+\DoxyCodeLine{90     \textcolor{keywordtype}{void} ImageDirection(\textcolor{keywordtype}{string} ID);}
+\DoxyCodeLine{96     \textcolor{keywordtype}{int} getImgMemoryBlock(\textcolor{keywordtype}{string} ID);}
+\DoxyCodeLine{97 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/Funciones secundarias para añadir datos-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{98 }
+\DoxyCodeLine{104     vector<string> UGdivider(\textcolor{keywordtype}{string} user);}
+\DoxyCodeLine{110     vector<string> GIdivider(\textcolor{keywordtype}{string} Gallery);}
+\DoxyCodeLine{111 }
+\DoxyCodeLine{116     \textcolor{keywordtype}{string} ImageDirectionaux();}
+\DoxyCodeLine{117 }
+\DoxyCodeLine{123     \textcolor{keywordtype}{string} addgalleryaux(\textcolor{keywordtype}{string} gallery);}
+\DoxyCodeLine{124 }
+\DoxyCodeLine{129     \textcolor{keywordtype}{string} adduseraux();}
+\DoxyCodeLine{130 }
+\DoxyCodeLine{131     \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/Funciones principales de Borrado de datos-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{136 \textcolor{comment}{}    \textcolor{keywordtype}{void} GIdeleter(\textcolor{keywordtype}{string} ID);}
+\DoxyCodeLine{137 }
+\DoxyCodeLine{142     \textcolor{keywordtype}{void} GIdeleter2(\textcolor{keywordtype}{string} Gallery);}
+\DoxyCodeLine{143 }
+\DoxyCodeLine{148     \textcolor{keywordtype}{void} MBdeleter(\textcolor{keywordtype}{string} ID);}
+\DoxyCodeLine{153     \textcolor{keywordtype}{void} UGdeleter(\textcolor{keywordtype}{string} Gallery);}
+\DoxyCodeLine{154 }
+\DoxyCodeLine{155 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/Fuinciones secundarias eliminación datos-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{156 }
+\DoxyCodeLine{162     \textcolor{keywordtype}{string} GIdeleterhelper(\textcolor{keywordtype}{string} ID);}
+\DoxyCodeLine{163 }
+\DoxyCodeLine{169     \textcolor{keywordtype}{string} GIdeleterhelper2(\textcolor{keywordtype}{string} Gallery);}
+\DoxyCodeLine{170 }
+\DoxyCodeLine{176     \textcolor{keywordtype}{string} MBdeleterhelper(\textcolor{keywordtype}{string} ID);}
+\DoxyCodeLine{177 }
+\DoxyCodeLine{183     \textcolor{keywordtype}{string} UGdeleterhelprt(\textcolor{keywordtype}{string} Gallery);}
+\DoxyCodeLine{184 }
+\DoxyCodeLine{185 \textcolor{keyword}{public}:}
+\DoxyCodeLine{193     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_file_handler_a0bbdf945652c8876fd7f020409bbfb43}{imageallocator}}(\textcolor{keywordtype}{string} image,\textcolor{keywordtype}{string} gallery, \textcolor{keywordtype}{string} ID);}
+\DoxyCodeLine{194 }
+\DoxyCodeLine{199     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_file_handler_a62b2a8dafa650b01ba74b66bcc28deb6}{adduser}}(\textcolor{keywordtype}{string} user);}
+\DoxyCodeLine{200 }
+\DoxyCodeLine{206     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_file_handler_a2eebeca92cb944199b6cfcb51151973b}{addgallery}}(\textcolor{keywordtype}{string} user, \textcolor{keywordtype}{string} gallery);}
+\DoxyCodeLine{207 }
+\DoxyCodeLine{213     vector<string> \mbox{\hyperlink{class_file_handler_a6c13c46ce6b68358dd96d71dc8ffdc73}{getgalleries}}(\textcolor{keywordtype}{string} user);}
+\DoxyCodeLine{214 }
+\DoxyCodeLine{220     \textcolor{keywordtype}{string} \mbox{\hyperlink{class_file_handler_a736739a753728d747d1650820e9ba11f}{getimage}}(\textcolor{keywordtype}{string} ID);}
+\DoxyCodeLine{221 }
+\DoxyCodeLine{227     vector<string>\mbox{\hyperlink{class_file_handler_a2782da6e07ab7a02f40d64d869545431}{getimagesID}}(\textcolor{keywordtype}{string} Gallery);}
+\DoxyCodeLine{228 }
+\DoxyCodeLine{233     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_file_handler_a15b46103c44251650b84cfdd0d3baff1}{deleteimage}}(\textcolor{keywordtype}{string} ID);}
+\DoxyCodeLine{234 }
+\DoxyCodeLine{239     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_file_handler_a3d2eaa0ac5895f604721efc05946cb7d}{deleteGalery}}(\textcolor{keywordtype}{string} Gallery);}
+\DoxyCodeLine{240 \};}
+\DoxyCodeLine{241 }
+\DoxyCodeLine{242 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//GALLERYTEC\_PROYECTO3\_FILEHANDLER\_H}}
+
+\end{DoxyCode}

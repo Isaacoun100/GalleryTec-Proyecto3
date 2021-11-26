@@ -1,0 +1,41 @@
+\hypertarget{_huffman_compresion_8h_source}{}\doxysection{Huffman\+Compresion.\+h}
+\label{_huffman_compresion_8h_source}\index{huffman/HuffmanCompresion.h@{huffman/HuffmanCompresion.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef GALLERYTEC\_PROYECTO3\_HUFFMANCOMPRESION\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define GALLERYTEC\_PROYECTO3\_HUFFMANCOMPRESION\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <cstdlib>}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{keyword}{using namespace }std;}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{keyword}{struct }\mbox{\hyperlink{struct_min_heap_node}{MinHeapNode}};}
+\DoxyCodeLine{11 \textcolor{keyword}{struct }\mbox{\hyperlink{struct_min_heap}{MinHeap}};}
+\DoxyCodeLine{12 \textcolor{keyword}{struct }\mbox{\hyperlink{structpage}{page}};}
+\DoxyCodeLine{13 \textcolor{keyword}{struct }\mbox{\hyperlink{struct_compressed_image}{CompressedImage}};}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15 \textcolor{keyword}{class }\mbox{\hyperlink{class_huffman_compresion}{HuffmanCompresion}} \{}
+\DoxyCodeLine{16 \textcolor{keyword}{public}:}
+\DoxyCodeLine{17     \textcolor{keywordtype}{void} printCodes(\textcolor{keyword}{struct} \mbox{\hyperlink{struct_min_heap_node}{MinHeapNode}}* root, \textcolor{keywordtype}{int} arr[], \textcolor{keywordtype}{int} top);}
+\DoxyCodeLine{18     \textcolor{keywordtype}{string} HuffmanCodes(\textcolor{keywordtype}{char} data[], \textcolor{keywordtype}{int} freq[], \textcolor{keywordtype}{int} size);}
+\DoxyCodeLine{19     \textcolor{keywordtype}{void} printArr(\textcolor{keywordtype}{int} arr[], \textcolor{keywordtype}{int} n);}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21 \textcolor{keyword}{private}:}
+\DoxyCodeLine{22     \textcolor{keywordtype}{string} createDictionary(\textcolor{keyword}{struct} \mbox{\hyperlink{struct_min_heap_node}{MinHeapNode}}* root, \textcolor{keywordtype}{string} result, \textcolor{keywordtype}{string} tmp);}
+\DoxyCodeLine{23     \textcolor{keyword}{struct }\mbox{\hyperlink{struct_min_heap_node}{MinHeapNode}}* buildHuffmanTree(\textcolor{keywordtype}{char} data[], \textcolor{keywordtype}{int} freq[], \textcolor{keywordtype}{int} size);}
+\DoxyCodeLine{24     \textcolor{keywordtype}{void} insertMinHeap(\textcolor{keyword}{struct} \mbox{\hyperlink{struct_min_heap}{MinHeap}}* minHeap,\textcolor{keyword}{struct} \mbox{\hyperlink{struct_min_heap_node}{MinHeapNode}}* minHeapNode);}
+\DoxyCodeLine{25     \textcolor{keyword}{struct }\mbox{\hyperlink{struct_min_heap}{MinHeap}}* createAndBuildMinHeap(\textcolor{keywordtype}{char} data[], \textcolor{keywordtype}{int} freq[], \textcolor{keywordtype}{int} size);}
+\DoxyCodeLine{26     \textcolor{keywordtype}{void} swapMinHeapNode(\textcolor{keyword}{struct} \mbox{\hyperlink{struct_min_heap_node}{MinHeapNode}}** a,\textcolor{keyword}{struct} \mbox{\hyperlink{struct_min_heap_node}{MinHeapNode}}** b);}
+\DoxyCodeLine{27     \textcolor{keyword}{struct }\mbox{\hyperlink{struct_min_heap_node}{MinHeapNode}}* extractMin(\textcolor{keyword}{struct} \mbox{\hyperlink{struct_min_heap}{MinHeap}}* minHeap);}
+\DoxyCodeLine{28     \textcolor{keywordtype}{void} minHeapify(\textcolor{keyword}{struct} \mbox{\hyperlink{struct_min_heap}{MinHeap}}* minHeap, \textcolor{keywordtype}{int} idx);}
+\DoxyCodeLine{29     \textcolor{keywordtype}{void} buildMinHeap(\textcolor{keyword}{struct} \mbox{\hyperlink{struct_min_heap}{MinHeap}}* minHeap);}
+\DoxyCodeLine{30     \textcolor{keywordtype}{int} isSizeOne(\textcolor{keyword}{struct} \mbox{\hyperlink{struct_min_heap}{MinHeap}}* minHeap);}
+\DoxyCodeLine{31     \textcolor{keywordtype}{int} isLeaf(\textcolor{keyword}{struct} \mbox{\hyperlink{struct_min_heap_node}{MinHeapNode}}* root);}
+\DoxyCodeLine{32 \};}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//GALLERYTEC\_PROYECTO3\_HUFFMANCOMPRESION\_H}}
+
+\end{DoxyCode}

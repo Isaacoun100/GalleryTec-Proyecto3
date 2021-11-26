@@ -1,0 +1,165 @@
+\hypertarget{class_file_handler}{}\doxysection{File\+Handler Class Reference}
+\label{class_file_handler}\index{FileHandler@{FileHandler}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_file_handler_a0bbdf945652c8876fd7f020409bbfb43}{imageallocator}} (string image, string gallery, string ID)
+\begin{DoxyCompactList}\small\item\em Recibe una imagen, registra en memoria la galería a la que pertenece la parte la comprime y la alamcena en los discos virtuales. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_file_handler_a62b2a8dafa650b01ba74b66bcc28deb6}{adduser}} (string user)
+\begin{DoxyCompactList}\small\item\em Añadir usuarios al registro de usuarios. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_file_handler_a2eebeca92cb944199b6cfcb51151973b}{addgallery}} (string user, string gallery)
+\begin{DoxyCompactList}\small\item\em Añadir galerías al registro de galerías. \end{DoxyCompactList}\item 
+vector$<$ string $>$ \mbox{\hyperlink{class_file_handler_a6c13c46ce6b68358dd96d71dc8ffdc73}{getgalleries}} (string user)
+\begin{DoxyCompactList}\small\item\em Obtener las galerías de un determinado usuario. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_file_handler_a736739a753728d747d1650820e9ba11f}{getimage}} (string ID)
+\begin{DoxyCompactList}\small\item\em Obtener una imagen en específico. \end{DoxyCompactList}\item 
+vector$<$ string $>$ \mbox{\hyperlink{class_file_handler_a2782da6e07ab7a02f40d64d869545431}{getimages\+ID}} (string Gallery)
+\begin{DoxyCompactList}\small\item\em Obtener el ID de las imagenes pertenecientes a una galería. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_file_handler_a15b46103c44251650b84cfdd0d3baff1}{deleteimage}} (string ID)
+\begin{DoxyCompactList}\small\item\em Borrar una imagen en especifico. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_file_handler_a3d2eaa0ac5895f604721efc05946cb7d}{delete\+Galery}} (string Gallery)
+\begin{DoxyCompactList}\small\item\em Borrar una galería en específico. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_file_handler_a2eebeca92cb944199b6cfcb51151973b}\label{class_file_handler_a2eebeca92cb944199b6cfcb51151973b}} 
+\index{FileHandler@{FileHandler}!addgallery@{addgallery}}
+\index{addgallery@{addgallery}!FileHandler@{FileHandler}}
+\doxysubsubsection{\texorpdfstring{addgallery()}{addgallery()}}
+{\footnotesize\ttfamily void File\+Handler\+::addgallery (\begin{DoxyParamCaption}\item[{string}]{user,  }\item[{string}]{gallery }\end{DoxyParamCaption})}
+
+
+
+Añadir galerías al registro de galerías. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em user} & \\
+\hline
+{\em gallery} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_file_handler_a62b2a8dafa650b01ba74b66bcc28deb6}\label{class_file_handler_a62b2a8dafa650b01ba74b66bcc28deb6}} 
+\index{FileHandler@{FileHandler}!adduser@{adduser}}
+\index{adduser@{adduser}!FileHandler@{FileHandler}}
+\doxysubsubsection{\texorpdfstring{adduser()}{adduser()}}
+{\footnotesize\ttfamily void File\+Handler\+::adduser (\begin{DoxyParamCaption}\item[{string}]{user }\end{DoxyParamCaption})}
+
+
+
+Añadir usuarios al registro de usuarios. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em user} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_file_handler_a3d2eaa0ac5895f604721efc05946cb7d}\label{class_file_handler_a3d2eaa0ac5895f604721efc05946cb7d}} 
+\index{FileHandler@{FileHandler}!deleteGalery@{deleteGalery}}
+\index{deleteGalery@{deleteGalery}!FileHandler@{FileHandler}}
+\doxysubsubsection{\texorpdfstring{deleteGalery()}{deleteGalery()}}
+{\footnotesize\ttfamily void File\+Handler\+::delete\+Galery (\begin{DoxyParamCaption}\item[{string}]{Gallery }\end{DoxyParamCaption})}
+
+
+
+Borrar una galería en específico. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Gallery} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_file_handler_a15b46103c44251650b84cfdd0d3baff1}\label{class_file_handler_a15b46103c44251650b84cfdd0d3baff1}} 
+\index{FileHandler@{FileHandler}!deleteimage@{deleteimage}}
+\index{deleteimage@{deleteimage}!FileHandler@{FileHandler}}
+\doxysubsubsection{\texorpdfstring{deleteimage()}{deleteimage()}}
+{\footnotesize\ttfamily void File\+Handler\+::deleteimage (\begin{DoxyParamCaption}\item[{string}]{ID }\end{DoxyParamCaption})}
+
+
+
+Borrar una imagen en especifico. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ID} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_file_handler_a6c13c46ce6b68358dd96d71dc8ffdc73}\label{class_file_handler_a6c13c46ce6b68358dd96d71dc8ffdc73}} 
+\index{FileHandler@{FileHandler}!getgalleries@{getgalleries}}
+\index{getgalleries@{getgalleries}!FileHandler@{FileHandler}}
+\doxysubsubsection{\texorpdfstring{getgalleries()}{getgalleries()}}
+{\footnotesize\ttfamily vector$<$ string $>$ File\+Handler\+::getgalleries (\begin{DoxyParamCaption}\item[{string}]{user }\end{DoxyParamCaption})}
+
+
+
+Obtener las galerías de un determinado usuario. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em user} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Vector con los nombres de las galerías de un usuario 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_file_handler_a736739a753728d747d1650820e9ba11f}\label{class_file_handler_a736739a753728d747d1650820e9ba11f}} 
+\index{FileHandler@{FileHandler}!getimage@{getimage}}
+\index{getimage@{getimage}!FileHandler@{FileHandler}}
+\doxysubsubsection{\texorpdfstring{getimage()}{getimage()}}
+{\footnotesize\ttfamily string File\+Handler\+::getimage (\begin{DoxyParamCaption}\item[{string}]{ID }\end{DoxyParamCaption})}
+
+
+
+Obtener una imagen en específico. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ID} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Imagen que se solicitó 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_file_handler_a2782da6e07ab7a02f40d64d869545431}\label{class_file_handler_a2782da6e07ab7a02f40d64d869545431}} 
+\index{FileHandler@{FileHandler}!getimagesID@{getimagesID}}
+\index{getimagesID@{getimagesID}!FileHandler@{FileHandler}}
+\doxysubsubsection{\texorpdfstring{getimagesID()}{getimagesID()}}
+{\footnotesize\ttfamily vector$<$ string $>$ File\+Handler\+::getimages\+ID (\begin{DoxyParamCaption}\item[{string}]{Gallery }\end{DoxyParamCaption})}
+
+
+
+Obtener el ID de las imagenes pertenecientes a una galería. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Gallery} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+vector con los nombres de las imagenes que pertenecen a una galería 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_file_handler_a0bbdf945652c8876fd7f020409bbfb43}\label{class_file_handler_a0bbdf945652c8876fd7f020409bbfb43}} 
+\index{FileHandler@{FileHandler}!imageallocator@{imageallocator}}
+\index{imageallocator@{imageallocator}!FileHandler@{FileHandler}}
+\doxysubsubsection{\texorpdfstring{imageallocator()}{imageallocator()}}
+{\footnotesize\ttfamily void File\+Handler\+::imageallocator (\begin{DoxyParamCaption}\item[{string}]{image,  }\item[{string}]{gallery,  }\item[{string}]{ID }\end{DoxyParamCaption})}
+
+
+
+Recibe una imagen, registra en memoria la galería a la que pertenece la parte la comprime y la alamcena en los discos virtuales. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em image} & \\
+\hline
+{\em gallery} & \\
+\hline
+{\em ID} & \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Memory\+Management/File\+Handler.\+h\item 
+Memory\+Management/File\+Handler.\+cpp\end{DoxyCompactItemize}

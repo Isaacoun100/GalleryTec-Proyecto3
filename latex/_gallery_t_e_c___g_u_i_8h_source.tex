@@ -1,0 +1,70 @@
+\hypertarget{_gallery_t_e_c___g_u_i_8h_source}{}\doxysection{Gallery\+TEC\+\_\+\+GUI.\+h}
+\label{_gallery_t_e_c___g_u_i_8h_source}\index{GUI/GalleryTEC\_GUI.h@{GUI/GalleryTEC\_GUI.h}}
+\mbox{\hyperlink{_gallery_t_e_c___g_u_i_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{//}}
+\DoxyCodeLine{2 \textcolor{comment}{// Created by maxgm on 21/11/21.}}
+\DoxyCodeLine{3 \textcolor{comment}{//}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <QtWidgets>}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include <QObject>}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include <QMainWindow>}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include <QFileDialog>}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include <QPixmap>}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include <QString>}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_main_app_8h}{MainApp.h}}"{}}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_sign_in_window_8h}{SignInWindow.h}}"{}}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include "{}Database\_Management/UsersDatabaseHandler.h"{}}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include "{}MemoryManagement/FileHandler.h"{}}}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17 \textcolor{keyword}{using namespace }std;}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#ifndef GALLERYTEC\_PROYECTO3\_GALLERYTEC\_GUI\_H}}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#define GALLERYTEC\_PROYECTO3\_GALLERYTEC\_GUI\_H}}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{31 \textcolor{keyword}{class }\mbox{\hyperlink{class_gallery_t_e_c___g_u_i}{GalleryTEC\_GUI}}:\textcolor{keyword}{public} QMainWindow \{}
+\DoxyCodeLine{32 Q\_OBJECT}
+\DoxyCodeLine{33 \textcolor{keyword}{public}:}
+\DoxyCodeLine{34     \textcolor{comment}{//UsersDatabaseHandler DBhandler;}}
+\DoxyCodeLine{38 \textcolor{comment}{}    \mbox{\hyperlink{class_gallery_t_e_c___g_u_i_aedaf8eb525ef91567b69f5d13164a9ee}{GalleryTEC\_GUI}}();}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{43     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_gallery_t_e_c___g_u_i_affdefda49d25961e784cc1395e6c1922}{\string~GalleryTEC\_GUI}}();}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45 }
+\DoxyCodeLine{46 \textcolor{keyword}{private}:}
+\DoxyCodeLine{47     QWidget window;}
+\DoxyCodeLine{48     \mbox{\hyperlink{class_main_app}{MainApp}} *ma;}
+\DoxyCodeLine{49     \mbox{\hyperlink{class_file_handler}{FileHandler}} fileHandler;}
+\DoxyCodeLine{50     \mbox{\hyperlink{class_sign_in_window}{SignInWindow}} *siw;}
+\DoxyCodeLine{51     QLineEdit *username;}
+\DoxyCodeLine{52     QLineEdit *password;}
+\DoxyCodeLine{53     QPushButton *registrarse;}
+\DoxyCodeLine{54     QPushButton *botonEntrar;}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56     QLabel *usernameLabel;}
+\DoxyCodeLine{57     QLabel *passwordLabel;}
+\DoxyCodeLine{58     QLabel *noTieneCuentaLabel;}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{63     \textcolor{keywordtype}{void} setUpBotones();}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{68     \textcolor{keywordtype}{void} setUpLabels();}
+\DoxyCodeLine{69 }
+\DoxyCodeLine{73     \textcolor{keywordtype}{void} setUpEntry();}
+\DoxyCodeLine{74 }
+\DoxyCodeLine{78     \textcolor{keywordtype}{void} setUpWidgets();}
+\DoxyCodeLine{79 }
+\DoxyCodeLine{80 }
+\DoxyCodeLine{81 \textcolor{keyword}{public} slots:}
+\DoxyCodeLine{82 }
+\DoxyCodeLine{86     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_gallery_t_e_c___g_u_i_a9c04663e28dc0dc4100684f6340affc2}{clickedRegistrarse}}();}
+\DoxyCodeLine{87 }
+\DoxyCodeLine{91     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_gallery_t_e_c___g_u_i_ad87672b8d8478270c1d826cb1edad2b9}{clickedEntrar}}();}
+\DoxyCodeLine{92 }
+\DoxyCodeLine{93 }
+\DoxyCodeLine{94 \};}
+\DoxyCodeLine{95 }
+\DoxyCodeLine{96 }
+\DoxyCodeLine{97 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//GALLERYTEC\_PROYECTO3\_GALLERYTEC\_GUI\_H}}
+
+\end{DoxyCode}

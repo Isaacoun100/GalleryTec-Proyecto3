@@ -1,0 +1,41 @@
+\hypertarget{class_metadata_database_handler}{}\doxysection{Metadata\+Database\+Handler Class Reference}
+\label{class_metadata_database_handler}\index{MetadataDatabaseHandler@{MetadataDatabaseHandler}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_metadata_database_handler_a3471ef80aab91c10b6064e43208ea321}\label{class_metadata_database_handler_a3471ef80aab91c10b6064e43208ea321}} 
+void {\bfseries add\+New\+Metadata} (string new\+Image, string gallery)
+\item 
+\mbox{\Hypertarget{class_metadata_database_handler_aacf68774a38e65688db3f50418766b1a}\label{class_metadata_database_handler_aacf68774a38e65688db3f50418766b1a}} 
+void {\bfseries delete\+Metadata} (string image)
+\item 
+\mbox{\Hypertarget{class_metadata_database_handler_afe48397c61a10d1a12cdf754f3cdabd3}\label{class_metadata_database_handler_afe48397c61a10d1a12cdf754f3cdabd3}} 
+void {\bfseries modify\+Metadata} (string image, string info\+Author, string info\+Year, string info\+Size, string info\+Desc)
+\item 
+\mbox{\Hypertarget{class_metadata_database_handler_aad5cb4989cdebb935c8416d825a5c5db}\label{class_metadata_database_handler_aad5cb4989cdebb935c8416d825a5c5db}} 
+vector$<$ string $>$ {\bfseries get\+Metadata} (string image)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_metadata_database_handler_afd9280d2d96357da5091ead6a9131bb4}\label{class_metadata_database_handler_afd9280d2d96357da5091ead6a9131bb4}} 
+mongocxx\+::instance {\bfseries inst} \{\}
+\item 
+\mbox{\Hypertarget{class_metadata_database_handler_a225b830bc6226653a0b4b693e72c36c4}\label{class_metadata_database_handler_a225b830bc6226653a0b4b693e72c36c4}} 
+const mongocxx\+::uri {\bfseries uri} = mongocxx\+::uri\{\char`\"{}mongodb+srv\+://michael-\/admin\+:webapp13@cluster0.\+7s2vm.\+mongodb.\+net/users\+\_\+\+DB?retry\+Writes=true\&w=majority\char`\"{}\}
+\item 
+\mbox{\Hypertarget{class_metadata_database_handler_ad018302a17c1cc0d605a00b8c20d23bf}\label{class_metadata_database_handler_ad018302a17c1cc0d605a00b8c20d23bf}} 
+mongocxx\+::client {\bfseries conn} \{uri\}
+\item 
+\mbox{\Hypertarget{class_metadata_database_handler_a6dee08cc267c565875baad7e6c224c0d}\label{class_metadata_database_handler_a6dee08cc267c565875baad7e6c224c0d}} 
+mongocxx\+::database {\bfseries db}
+\item 
+\mbox{\Hypertarget{class_metadata_database_handler_a199ebd31f1a21e4a124207e70e47e064}\label{class_metadata_database_handler_a199ebd31f1a21e4a124207e70e47e064}} 
+mongocxx\+::collection {\bfseries coll}
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Database\+\_\+\+Management/Metadata\+Database\+Handler.\+h\item 
+Database\+\_\+\+Management/Metadata\+Database\+Handler.\+cpp\end{DoxyCompactItemize}

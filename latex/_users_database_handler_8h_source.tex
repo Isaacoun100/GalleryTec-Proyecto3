@@ -1,0 +1,87 @@
+\hypertarget{_users_database_handler_8h_source}{}\doxysection{Users\+Database\+Handler.\+h}
+\label{_users_database_handler_8h_source}\index{Database\_Management/UsersDatabaseHandler.h@{Database\_Management/UsersDatabaseHandler.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{//}}
+\DoxyCodeLine{2 \textcolor{comment}{// Created by michael on 22/11/21.}}
+\DoxyCodeLine{3 \textcolor{comment}{//}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include <cstdint>}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#include <bsoncxx/v\_noabi/bsoncxx/json.hpp>}}
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#include <mongocxx/v\_noabi/mongocxx/client.hpp>}}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#include <mongocxx/v\_noabi/mongocxx/stdx.hpp>}}
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#include <mongocxx/v\_noabi/mongocxx/uri.hpp>}}
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#include <mongocxx/v\_noabi/mongocxx/instance.hpp>}}
+\DoxyCodeLine{23 \textcolor{preprocessor}{\#include <bsoncxx/v\_noabi/bsoncxx/builder/stream/helpers.hpp>}}
+\DoxyCodeLine{24 \textcolor{preprocessor}{\#include <bsoncxx/v\_noabi/bsoncxx/builder/stream/document.hpp>}}
+\DoxyCodeLine{25 \textcolor{preprocessor}{\#include <bsoncxx/v\_noabi/bsoncxx/builder/stream/array.hpp>}}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28 \textcolor{keyword}{using namespace }std;}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30 \textcolor{preprocessor}{\#ifndef GALLERYTEC\_PROYECTO3\_USERSDATABASEHANDLER\_H}}
+\DoxyCodeLine{31 \textcolor{preprocessor}{\#define GALLERYTEC\_PROYECTO3\_USERSDATABASEHANDLER\_H}}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33 \textcolor{keyword}{class }\mbox{\hyperlink{class_users_database_handler}{UsersDatabaseHandler}}\{}
+\DoxyCodeLine{34 \textcolor{keyword}{public}:}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36     mongocxx::instance inst\{\};}
+\DoxyCodeLine{37     \textcolor{keyword}{const} mongocxx::uri uri = mongocxx::uri\{\textcolor{stringliteral}{"{}mongodb+srv://michael-\/admin:webapp13@cluster0.7s2vm.mongodb.net/users\_DB?retryWrites=true\&w=majority"{}}\};}
+\DoxyCodeLine{38     mongocxx::client conn\{uri\};}
+\DoxyCodeLine{39     mongocxx::database db;}
+\DoxyCodeLine{40     mongocxx::collection coll;}
+\DoxyCodeLine{41     mongocxx::collection collImages;}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44 \textcolor{keyword}{public}:}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{49     \mbox{\hyperlink{class_users_database_handler_ab46968ff0d738d33c2849225ba289244}{UsersDatabaseHandler}}();}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{56     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_users_database_handler_a07f314400eaa5ec11d6810f3286d0eb8}{insertUserToDB}}(\textcolor{keywordtype}{string} userName, \textcolor{keywordtype}{string} userPassword);}
+\DoxyCodeLine{57 }
+\DoxyCodeLine{63     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_users_database_handler_abd281e2072bc567e5010b8fb49e8b4f3}{modifyUserData}}(\textcolor{keywordtype}{string} userName, \textcolor{keywordtype}{string} newUserName);}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{69     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_users_database_handler_a7220109ac8e21ae2b16891732fa83127}{deleteUserData}}(\textcolor{keywordtype}{string} username);}
+\DoxyCodeLine{70 }
+\DoxyCodeLine{75     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_users_database_handler_a831be4bfe430201cc8c0d3c484cd686d}{getUserDataFromDB}}(\textcolor{keywordtype}{string} username);}
+\DoxyCodeLine{76 }
+\DoxyCodeLine{82     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_users_database_handler_a3598c4afbc1c252a69e511f710e4ba03}{addNewGallery}}(\textcolor{keywordtype}{string} username,\textcolor{keywordtype}{string} newGallery);}
+\DoxyCodeLine{83 }
+\DoxyCodeLine{90     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_users_database_handler_a5515a310c55d2a2645a846ecdc965684}{addNewImage}}(\textcolor{keywordtype}{string} username, \textcolor{keywordtype}{string} gallery,\textcolor{keywordtype}{string} newImage);}
+\DoxyCodeLine{91 }
+\DoxyCodeLine{97     vector<string> \mbox{\hyperlink{class_users_database_handler_a7d184abf0fe570602e64a1b9db71a7a0}{getUsernameAndPassword}}(\textcolor{keywordtype}{string} username);}
+\DoxyCodeLine{98 }
+\DoxyCodeLine{104     vector<string> \mbox{\hyperlink{class_users_database_handler_acf053ee39f4209bb9804034672e2614e}{getGalleries}}(\textcolor{keywordtype}{string} username);}
+\DoxyCodeLine{105 }
+\DoxyCodeLine{112     vector<string> \mbox{\hyperlink{class_users_database_handler_a9ceec4326b5bdefa1d32a616676e2cc9}{getImages}}(\textcolor{keywordtype}{string} username, \textcolor{keywordtype}{string} gallery);}
+\DoxyCodeLine{113 }
+\DoxyCodeLine{120     \textcolor{keywordtype}{string} \mbox{\hyperlink{class_users_database_handler_acbdd56754eff5c3dae93d60f5ce2335c}{getRawImages}}(\textcolor{keywordtype}{string} username,\textcolor{keywordtype}{string} gallery);}
+\DoxyCodeLine{121 }
+\DoxyCodeLine{127     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_users_database_handler_a1a14117937995bcee57c82b20403e908}{deleteGallery}}(\textcolor{keywordtype}{string} username, \textcolor{keywordtype}{string} gallery);}
+\DoxyCodeLine{128 }
+\DoxyCodeLine{135     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_users_database_handler_a756a7120610bd5da134e8c5ea605bb18}{deleteImage}}(\textcolor{keywordtype}{string} username, \textcolor{keywordtype}{string} gallery, \textcolor{keywordtype}{string} image);}
+\DoxyCodeLine{136 }
+\DoxyCodeLine{142     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_users_database_handler_a0a76f4ecbd4125cfaef29e63ab5b68c2}{insertImageToCollection}}(\textcolor{keywordtype}{string} newImage, \textcolor{keywordtype}{string} gallery);}
+\DoxyCodeLine{143 }
+\DoxyCodeLine{150     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_users_database_handler_a44381fb336459fbc479792bd140c1c9b}{insertImagesModified}}(\textcolor{keywordtype}{string} username,\textcolor{keywordtype}{string} images,\textcolor{keywordtype}{string} gallery);}
+\DoxyCodeLine{151 }
+\DoxyCodeLine{157     vector<string> \mbox{\hyperlink{class_users_database_handler_acba47c22b6b37cd13bbe4579fd2a2d6f}{getMetadata}}(\textcolor{keywordtype}{string} image);}
+\DoxyCodeLine{158 }
+\DoxyCodeLine{167     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_users_database_handler_aad0d5c389e60ecb4d37f6b4636231081}{modifyMetadata}}(\textcolor{keywordtype}{string} image, \textcolor{keywordtype}{string} infoAuthor, \textcolor{keywordtype}{string} infoYear, \textcolor{keywordtype}{string} infoSize, \textcolor{keywordtype}{string} infoDesc);}
+\DoxyCodeLine{168 }
+\DoxyCodeLine{169 }
+\DoxyCodeLine{170     \textcolor{keywordtype}{void} emptyGallerySet();}
+\DoxyCodeLine{171 }
+\DoxyCodeLine{172 }
+\DoxyCodeLine{173 }
+\DoxyCodeLine{174 \};}
+\DoxyCodeLine{175 }
+\DoxyCodeLine{176 }
+\DoxyCodeLine{177 }
+\DoxyCodeLine{178 }
+\DoxyCodeLine{179 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//GALLERYTEC\_PROYECTO3\_USERSDATABASEHANDLER\_H}}
+
+\end{DoxyCode}
