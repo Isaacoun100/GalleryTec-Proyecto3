@@ -2,7 +2,8 @@
 // Created by maxgm on 21/11/21.
 //
 
-#include "GalleryTEC_GUI.h"
+#include "GUI/GalleryTEC_GUI.h"
+
 #include <iostream>
 
 GalleryTEC_GUI::GalleryTEC_GUI() {
@@ -10,6 +11,8 @@ GalleryTEC_GUI::GalleryTEC_GUI() {
     window.setWindowTitle(QApplication::translate("toplevel","LogIn-GalleryTEC"));
     window.setFixedSize(window.size().width(),window.size().height());
     window.show();
+    DBhandler;
+
 
 
     setUpWidgets();

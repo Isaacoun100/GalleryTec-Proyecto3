@@ -5,11 +5,12 @@
 #include <QtWidgets>
 #include <vector>
 #include "Database_Management/UsersDatabaseHandler.h"
+#include "GalleryTEC_GUI.h"
 
 using namespace std;
 
-int main() {
-    UsersDatabaseHandler DBhandler;
+int main(int argc, char *argv[]) {
+    //UsersDatabaseHandler DBhandler;
     //DBhandler.insertUserToDB("USUARIOTEC","passwordUsuarioNuevo");
     //DBhandler.deleteUserData("user_5");
     //DBhandler.getUserDataFromDB("NEW_USER__");
@@ -30,10 +31,10 @@ int main() {
     //DBhandler.getMetadata("Image_00002__");
     //DBhandler.addNewImage("USUARIOTEC","Gallery02","Image_0003_");
     //DBhandler.getMetadata("Image_0003_");
-    DBhandler.modifyMetadata("Image_0003_","Michael","2021","5 MB", "Imagen en .ppm");
+    //DBhandler.modifyMetadata("Image_0003_","Michael","2021","5 MB", "Imagen en .ppm");
 
 
-
-
-    return 0;
+    QApplication app(argc,argv);
+    GalleryTEC_GUI GUI;
+    return app.exec();
 }

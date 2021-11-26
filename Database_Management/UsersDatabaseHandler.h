@@ -15,14 +15,14 @@
 #include <cstdint>
 #include <iostream>
 #include <vector>
-#include <bsoncxx/json.hpp>
-#include <mongocxx/client.hpp>
-#include <mongocxx/stdx.hpp>
-#include <mongocxx/uri.hpp>
-#include <mongocxx/instance.hpp>
-#include <bsoncxx/builder/stream/helpers.hpp>
-#include <bsoncxx/builder/stream/document.hpp>
-#include <bsoncxx/builder/stream/array.hpp>
+#include <bsoncxx/v_noabi/bsoncxx/json.hpp>
+#include <mongocxx/v_noabi/mongocxx/client.hpp>
+#include <mongocxx/v_noabi/mongocxx/stdx.hpp>
+#include <mongocxx/v_noabi/mongocxx/uri.hpp>
+#include <mongocxx/v_noabi/mongocxx/instance.hpp>
+#include <bsoncxx/v_noabi/bsoncxx/builder/stream/helpers.hpp>
+#include <bsoncxx/v_noabi/bsoncxx/builder/stream/document.hpp>
+#include <bsoncxx/v_noabi/bsoncxx/builder/stream/array.hpp>
 
 
 using namespace std;

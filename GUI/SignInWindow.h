@@ -8,6 +8,7 @@
 #include <QFileDialog>
 #include <QPixmap>
 #include <QString>
+#include "Database_Management/UsersDatabaseHandler.h"
 
 using namespace std;
 
@@ -18,6 +19,7 @@ using namespace std;
 class SignInWindow:public QWindow {
     Q_OBJECT
 public:
+    UsersDatabaseHandler DBhandler;
     /**
      * @brief constructor de la clase SignInWindow.
      */
@@ -62,7 +64,7 @@ public slots:
     /**
      * @brief este metodo se llama cuando se le da click al boton "Registrar" y abre la ventana creada por la clase GalleryTEC_GUI.
      */
-    void clickedRegistrar();
+    void clickedRegistrar(QString usr, QString pswd);
 
 };
 

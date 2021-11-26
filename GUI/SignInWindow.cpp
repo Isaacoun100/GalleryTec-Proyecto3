@@ -47,6 +47,7 @@ void SignInWindow::setUpEntries() {
 
     newUsername->show();
     newPassword->show();
+    clickedRegistrar(newUsername->text(), newPassword->text());
 
 }
 
@@ -57,7 +58,8 @@ void SignInWindow::setUpWidgets() {
 
 }
 
-void SignInWindow::clickedRegistrar() {
+void SignInWindow::clickedRegistrar(QString usr, QString pswd) {
+    DBhandler.insertUserToDB(usr, pswd);
 
 }
 

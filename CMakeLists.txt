@@ -39,6 +39,7 @@ include_directories("/usr/local/lib")
 include_directories(jsoncpp_include_dir)
 
 include_directories(GUI)
+include_directories(Database_Management)
 add_executable(GalleryTec_Proyecto3
         main.cpp
         GUI/GalleryTEC_GUI.h

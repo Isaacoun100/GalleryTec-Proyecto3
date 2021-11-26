@@ -11,6 +11,7 @@
 #include <QString>
 #include "MainApp.h"
 #include "SignInWindow.h"
+#include "Database_Management/UsersDatabaseHandler.h"
 
 using namespace std;
 
@@ -29,6 +30,7 @@ using namespace std;
 class GalleryTEC_GUI:public QMainWindow {
 Q_OBJECT
 public:
+    UsersDatabaseHandler DBhandler;
     /**
      * @brief constructor de la clase GalleryTEC_GUI.
      */
